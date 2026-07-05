@@ -144,6 +144,11 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
         </div>
 
         <div className="text-side relative z-[80] grid h-screen items-center gap-4 md:grid-cols-2">
+          <img
+            src="/all-cans-bunched.png"
+            alt="All Golden Eagle Flavours"
+            className="w-full md:hidden"
+          />
           <div>
             <h2
               aria-label={brandConfig.brandSection.title}
