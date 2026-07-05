@@ -1,20 +1,19 @@
 "use client";
 
-import { asText, Content } from "@prismicio/client";
-import { PrismicNextImage } from "@prismicio/next";
-import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
+import { Content } from "@prismicio/client";
+import { SliceComponentProps } from "@prismicio/react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { View } from "@react-three/drei";
 
 import { Bounded } from "@/components/Bounded";
-import Button from "@/components/Button";
 import { TextSplitter } from "@/components/TextSplitter";
 import Scene from "./Scene";
 import { Bubbles } from "./Bubbles";
 import { useStore } from "@/hooks/useStore";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
+import { brandConfig, contactHref } from "@/config/brandConfig";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -39,11 +38,12 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
       introTl
         .set(".hero", { opacity: 1 })
         .from(".hero-header-word", {
-          scale: 3,
+          scale: 1.25,
           opacity: 0,
-          ease: "power4.in",
-          delay: 0.3,
-          stagger: 1,
+          ease: "power3.out",
+          delay: 0.2,
+          duration: 0.45,
+          stagger: 0.08,
         })
         .from(
           ".hero-subheading",
@@ -76,10 +76,10 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
         .fromTo(
           "body",
           {
-            backgroundColor: "#FDE047",
+            backgroundColor: brandConfig.colors.darkBlue,
           },
           {
-            backgroundColor: "#D9F99D",
+            backgroundColor: brandConfig.colors.blue,
             overwrite: "auto",
           },
           1,
@@ -117,38 +117,64 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
       <div className="grid">
         <div className="grid h-screen place-items-center">
           <div className="grid auto-rows-min place-items-center text-center">
-            <h1 className="hero-header text-7xl font-black uppercase leading-[.8] text-orange-500 md:text-[9rem] lg:text-[13rem]">
+            <h1
+              aria-label={brandConfig.heroTitle}
+              className="hero-header max-w-5xl px-4 text-4xl font-black uppercase leading-[0.95] sm:text-5xl md:text-7xl lg:text-8xl"
+              style={{ color: brandConfig.colors.white }}
+            >
               <TextSplitter
-                text={asText(slice.primary.heading)}
-                wordDisplayStyle="block"
+                text={brandConfig.heroTitle}
                 className="hero-header-word"
               />
             </h1>
-            <div className="hero-subheading mt-12 text-5xl font-semibold text-sky-950 lg:text-6xl">
-              <PrismicRichText field={slice.primary.subheading} />
+            <div
+              className="hero-subheading mt-6 text-3xl font-semibold lg:text-4xl"
+              style={{ color: brandConfig.colors.yellow }}
+            >
+              <p>{brandConfig.productName}</p>
             </div>
-            <div className="hero-body text-2xl font-normal text-sky-950">
-              <PrismicRichText field={slice.primary.body} />
+            <div
+              className="hero-body max-w-2xl text-balance text-xl font-normal md:text-2xl"
+              style={{ color: brandConfig.colors.white }}
+            >
+              <p>{brandConfig.heroSubtitle}</p>
             </div>
-            <Button
-              buttonLink={slice.primary.button_link}
-              buttonText={slice.primary.button_text}
-              className="hero-button mt-12"
-            />
+            <div className="hero-button mt-8 flex flex-wrap justify-center gap-4">
+              <a
+                href="#flavours"
+                className="rounded-full px-8 py-4 text-lg font-bold uppercase tracking-wide text-white transition hover:scale-105"
+                style={{ backgroundColor: brandConfig.colors.red }}
+              >
+                {brandConfig.ctaPrimary}
+              </a>
+              <a
+                href={contactHref}
+                className="rounded-full border px-8 py-4 text-lg font-bold uppercase tracking-wide transition hover:scale-105"
+                style={{
+                  borderColor: brandConfig.colors.yellow,
+                  color: brandConfig.colors.white,
+                }}
+              >
+                {brandConfig.ctaSecondary}
+              </a>
+            </div>
           </div>
         </div>
 
         <div className="text-side relative z-[80] grid h-screen items-center gap-4 md:grid-cols-2">
-          <PrismicNextImage
-            className="w-full md:hidden"
-            field={slice.primary.cans_image}
-          />
           <div>
-            <h2 className="text-side-heading text-balance text-6xl font-black uppercase text-sky-950 lg:text-8xl">
-              <TextSplitter text={asText(slice.primary.second_heading)} />
+            <h2
+              aria-label={brandConfig.brandSection.title}
+              className="text-side-heading text-balance text-6xl font-black uppercase lg:text-8xl"
+              style={{ color: brandConfig.colors.white }}
+            >
+              <TextSplitter text={brandConfig.brandSection.title} />
             </h2>
-            <div className="text-side-body mt-4 max-w-xl text-balance text-xl font-normal text-sky-950">
-              <PrismicRichText field={slice.primary.second_body} />
+            <div
+              className="text-side-body mt-4 max-w-xl text-balance text-xl font-normal"
+              style={{ color: brandConfig.colors.white }}
+            >
+              <p>{brandConfig.brandSection.copy}</p>
             </div>
           </div>
         </div>

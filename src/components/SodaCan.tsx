@@ -1,49 +1,72 @@
 "use client";
 
+import type { ComponentPropsWithoutRef } from "react";
 import { useGLTF, useTexture } from "@react-three/drei";
 import * as THREE from "three";
 
-useGLTF.preload("/Soda-can.gltf");
+import {
+  defaultGoldenEagleProductKey,
+  getGoldenEagleProduct,
+  goldenEagleLabelPaths,
+  goldenEagleProducts,
+  type GoldenEagleProductKey,
+} from "@/config/goldenEagleProducts";
 
-const flavorTextures = {
-  lemonLime: "/labels/lemon-lime.png",
-  grape: "/labels/grape.png",
-  blackCherry: "/labels/cherry.png",
-  strawberryLemonade: "/labels/strawberry.png",
-  watermelon: "/labels/watermelon.png",
-};
+const CAN_MODEL_PATH = "/Soda-can.gltf";
+
+useGLTF.preload(CAN_MODEL_PATH);
+goldenEagleProducts.forEach((product) => useTexture.preload(product.labelPath));
 
 const metalMaterial = new THREE.MeshStandardMaterial({
   roughness: 0.3,
   metalness: 1,
-  color: "#bbbbbb",
+  color: "#c8c8c8",
 });
 
-export type SodaCanProps = {
-  flavor?: keyof typeof flavorTextures;
+const legacyFlavorMap: Record<string, GoldenEagleProductKey> = {
+  blackCherry: "original",
+  lemonLime: "zeroCaffeine",
+  grape: "coffeeEdition",
+  strawberryLemonade: "redEdition",
+  watermelon: "tropicalEdition",
+};
+
+export type SodaCanFlavor = GoldenEagleProductKey;
+
+export type SodaCanProps = ComponentPropsWithoutRef<"group"> & {
+  flavor?: GoldenEagleProductKey | string | null;
+  productKey?: GoldenEagleProductKey;
   scale?: number;
 };
 
+function normalizeProductKey(
+  flavor?: GoldenEagleProductKey | string | null,
+  productKey?: GoldenEagleProductKey,
+) {
+  if (productKey) return productKey;
+  if (!flavor) return defaultGoldenEagleProductKey;
+  return legacyFlavorMap[flavor] ?? getGoldenEagleProduct(flavor).key;
+}
+
 export function SodaCan({
-  flavor = "blackCherry",
+  flavor,
+  productKey,
   scale = 2,
   ...props
 }: SodaCanProps) {
-  const { nodes } = useGLTF("/Soda-can.gltf");
+  const { nodes } = useGLTF(CAN_MODEL_PATH);
+  const labels = useTexture(goldenEagleLabelPaths);
+  const selectedKey = normalizeProductKey(flavor, productKey);
 
-  const labels = useTexture(flavorTextures);
+  Object.values(labels).forEach((texture) => {
+    texture.flipY = false;
+    texture.colorSpace = THREE.SRGBColorSpace;
+  });
 
-  // Fixes upside down labels
-  labels.strawberryLemonade.flipY = false;
-  labels.blackCherry.flipY = false;
-  labels.watermelon.flipY = false;
-  labels.grape.flipY = false;
-  labels.lemonLime.flipY = false;
-
-  const label = labels[flavor];
+  const label = labels[selectedKey];
 
   return (
-    <group {...props} dispose={null} scale={scale} rotation={[0, -Math.PI, 0]}>
+    <group {...props} dispose={null} scale={scale} rotation={[0, 0, 0]}>
       <mesh
         castShadow
         receiveShadow
@@ -55,7 +78,7 @@ export function SodaCan({
         receiveShadow
         geometry={(nodes.cylinder_1 as THREE.Mesh).geometry}
       >
-        <meshStandardMaterial roughness={0.15} metalness={0.7} map={label} />
+        <meshStandardMaterial roughness={0.18} metalness={0.65} map={label} />
       </mesh>
       <mesh
         castShadow

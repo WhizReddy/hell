@@ -1,5 +1,6 @@
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
+import { brandConfig } from "@/config/brandConfig";
 
 /**
  * Props for `BigText`.
@@ -14,16 +15,16 @@ const BigText = ({ slice }: BigTextProps): JSX.Element => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="min-h-screen w-screen overflow-hidden bg-[#FE6334] text-[#FEE832]"
+      className="min-h-screen w-screen overflow-hidden"
+      style={{
+        backgroundColor: brandConfig.colors.blue,
+        color: brandConfig.colors.white,
+      }}
     >
-      <h2 className="grid w-full gap-[3vw] py-10 text-center font-black uppercase leading-[.7]">
-        <div className="text-[34vw]">Soda</div>
-        <div className="grid gap-[3vw] text-[34vw] md:flex md:text-[11vw]">
-          <span className="inline-block">that </span>
-          <span className="inline-block max-md:text-[27vw]">makes </span>
-          <span className="inline-block max-md:text-[40vw]">you </span>
-        </div>
-        <div className="text-[32vw]">Smile</div>
+      <h2 className="mx-auto grid min-h-screen max-w-6xl place-content-center gap-6 px-4 py-16 text-center text-6xl font-black uppercase leading-[0.88] md:text-8xl lg:text-9xl">
+        <span>Golden</span>
+        <span>Eagle</span>
+        <span>Flavours</span>
       </h2>
     </section>
   );

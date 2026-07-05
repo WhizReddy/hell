@@ -1,6 +1,5 @@
 "use client";
 
-import { Content } from "@prismicio/client";
 import { Cloud, Clouds, Environment, Text } from "@react-three/drei";
 import { useRef } from "react";
 import * as THREE from "three";
@@ -9,13 +8,14 @@ import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import FloatingCan from "@/components/FloatingCan";
+import type { SodaCanProps } from "@/components/SodaCan";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 type SkyDiveProps = {
   sentence: string | null;
-  flavor: Content.SkyDiveSliceDefaultPrimary["flavor"];
+  flavor: SodaCanProps["flavor"];
 };
 
 export default function Scene({ sentence, flavor }: SkyDiveProps) {

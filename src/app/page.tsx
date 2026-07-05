@@ -1,35 +1,63 @@
 import { Metadata } from "next";
 
-import { SliceZone } from "@prismicio/react";
-import * as prismic from "@prismicio/client";
-
-import { createClient } from "@/prismicio";
-import { components } from "@/slices";
-
-// This component renders your homepage.
-//
-// Use Next's generateMetadata function to render page metadata.
-//
-// Use the SliceZone to render the content of the page.
+import Hero from "@/slices/Hero";
+import AlternatingText from "@/slices/AlternatingText";
+import Carousel from "@/slices/Carousel";
+import SkyDive from "@/slices/SkyDive";
+import BigText from "@/slices/BigText";
+import { brandConfig } from "@/config/brandConfig";
 
 export async function generateMetadata(): Promise<Metadata> {
-  const client = createClient();
-  const home = await client.getByUID("page", "home");
-
   return {
-    title: prismic.asText(home.data.title),
-    description: home.data.meta_description,
+    title: `${brandConfig.productName} | ${brandConfig.companyName}`,
+    description: brandConfig.heroSubtitle,
     openGraph: {
-      title: home.data.meta_title ?? undefined,
-      images: [{ url: home.data.meta_image.url ?? "" }],
+      title: `${brandConfig.companyName} energy drink product concept`,
+      description: brandConfig.heroSubtitle,
     },
   };
 }
 
 export default async function Index() {
-  // The client queries content from the Prismic API
-  const client = createClient();
-  const home = await client.getByUID("page", "home");
+  const baseSlice = {
+    variation: "default",
+    version: "initial",
+    items: [],
+    primary: {},
+  };
 
-  return <SliceZone slices={home.data.slices} components={components} />;
+  return (
+    <>
+      <Hero
+        slice={{ ...baseSlice, slice_type: "hero" } as never}
+        index={0}
+        slices={[]}
+        context={undefined}
+      />
+      <AlternatingText
+        slice={{ ...baseSlice, slice_type: "alternating_text" } as never}
+        index={1}
+        slices={[]}
+        context={undefined}
+      />
+      <Carousel
+        slice={{ ...baseSlice, slice_type: "carousel" } as never}
+        index={2}
+        slices={[]}
+        context={undefined}
+      />
+      <SkyDive
+        slice={{ ...baseSlice, slice_type: "sky_dive" } as never}
+        index={3}
+        slices={[]}
+        context={undefined}
+      />
+      <BigText
+        slice={{ ...baseSlice, slice_type: "big_text" } as never}
+        index={4}
+        slices={[]}
+        context={undefined}
+      />
+    </>
+  );
 }
