@@ -25,10 +25,10 @@ const BigText = ({ slice }: BigTextProps): JSX.Element => {
       <div className="absolute top-1/4 right-8 z-50 w-32 h-32 md:right-16 md:w-48 md:h-48">
         <CircleText backgroundColor={brandConfig.colors.yellow} textColor={brandConfig.colors.blue} />
       </div>
-      <h2 className="mx-auto grid min-h-screen max-w-full place-content-center gap-6 px-4 py-16 text-center text-8xl font-black uppercase leading-[0.85] md:text-[12rem] lg:text-[16rem]">
-        <span>Golden</span>
-        <span>Eagle</span>
-        <span>Flavours</span>
+      <h2 className="grid w-full min-h-screen place-content-center gap-[1vw] py-16 text-center font-black uppercase leading-[0.8]">
+        <div className="text-[25vw]">Golden</div>
+        <div className="text-[29vw]">Eagle</div>
+        <div className="text-[17vw]">Flavours</div>
       </h2>
     </section>
   );

@@ -79,7 +79,7 @@ const Carousel = ({ slice }: CarouselProps): JSX.Element => {
         style={{ color: currentProduct.primaryColor }}
       />
 
-      <h2 className="relative mx-auto max-w-4xl text-center text-[clamp(2rem,5vw,5rem)] font-bold leading-[1.08]">
+      <h2 className="relative mx-auto max-w-4xl text-center text-5xl font-bold leading-[1.08] md:text-6xl lg:text-7xl">
         Learn More About Our Flavours
       </h2>
 
