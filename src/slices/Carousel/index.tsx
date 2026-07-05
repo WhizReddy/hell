@@ -64,7 +64,7 @@ const Carousel = ({ slice }: CarouselProps): JSX.Element => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       id="flavours"
-      className="carousel relative grid min-h-screen grid-rows-[auto,auto,1fr,auto] justify-center overflow-hidden px-4 py-10 text-white"
+      className="carousel relative grid min-h-screen grid-rows-[auto,4fr,auto] justify-center overflow-hidden px-4 py-10 text-white"
       style={{
         background: `linear-gradient(135deg, ${currentProduct.primaryColor}, ${currentProduct.secondaryColor})`,
       }}

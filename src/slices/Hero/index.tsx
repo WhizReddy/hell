@@ -139,25 +139,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
             >
               <p>{brandConfig.heroSubtitle}</p>
             </div>
-            <div className="hero-button mt-8 flex flex-wrap justify-center gap-4">
-              <a
-                href="#flavours"
-                className="rounded-full px-8 py-4 text-lg font-bold uppercase tracking-wide text-white transition hover:scale-105"
-                style={{ backgroundColor: brandConfig.colors.red }}
-              >
-                {brandConfig.ctaPrimary}
-              </a>
-              <a
-                href={contactHref}
-                className="rounded-full border px-8 py-4 text-lg font-bold uppercase tracking-wide transition hover:scale-105"
-                style={{
-                  borderColor: brandConfig.colors.yellow,
-                  color: brandConfig.colors.white,
-                }}
-              >
-                {brandConfig.ctaSecondary}
-              </a>
-            </div>
+
           </div>
         </div>
 
