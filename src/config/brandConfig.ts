@@ -55,19 +55,11 @@ export const brandConfig = {
   productFeatures: [
     {
       title: "Flavour-led browsing",
-      description: "Choose by product variant, not can size.",
+      description: "Choose by product variant and discover a rich selection of Golden Eagle energy drinks, each carefully crafted to match your distinct taste preferences and provide the perfect energy boost whenever you need it most.",
     },
     {
       title: "Real label textures",
-      description: "Each can uses the uploaded Golden Eagle artwork.",
-    },
-    {
-      title: "Responsive product view",
-      description: "Short copy keeps text clear beside the cans.",
-    },
-    {
-      title: "Dynamic colour themes",
-      description: "The page colour follows the selected flavour.",
+      description: "Each can is meticulously rendered in high fidelity using the original Golden Eagle artwork, ensuring that every condensation bead and metallic shine reflects the premium quality of the real product.",
     },
   ],
   brandSection: {

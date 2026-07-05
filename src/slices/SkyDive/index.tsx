@@ -34,13 +34,7 @@ const SkyDive = ({ slice }: SkyDiveProps): JSX.Element => {
           {brandConfig.ctaSection.title}
         </h2>
       </div>
-      <a
-        href={contactHref}
-        className="relative z-10 mx-auto mt-8 block w-fit rounded-full px-8 py-4 text-lg font-bold uppercase text-white"
-        style={{ backgroundColor: brandConfig.colors.red }}
-      >
-        {brandConfig.ctaSection.cta}
-      </a>
+
     </Bounded>
   );
 };

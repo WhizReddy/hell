@@ -83,31 +83,7 @@ const Carousel = ({ slice }: CarouselProps): JSX.Element => {
         Learn More About Our Flavours
       </h2>
 
-      <div className="relative mx-auto mt-5 flex max-w-5xl flex-wrap justify-center gap-2">
-        {goldenEagleProducts.map((product, index) => {
-          const isSelected = index === currentFlavorIndex;
 
-          return (
-            <button
-              key={product.key}
-              onClick={() => changeFlavor(index)}
-              className={clsx(
-                "rounded-full border px-4 py-2 text-sm font-bold uppercase transition",
-                isSelected ? "scale-105 opacity-100" : "scale-95 opacity-75",
-              )}
-              style={{
-                borderColor: isSelected ? currentProduct.accentColor : "#ffffff",
-                backgroundColor: isSelected
-                  ? "rgb(255 255 255 / 0.18)"
-                  : "rgb(255 255 255 / 0.08)",
-                color: currentProduct.textColor,
-              }}
-            >
-              {product.shortName}
-            </button>
-          );
-        })}
-      </div>
 
       <div className="relative grid grid-cols-[auto,minmax(220px,70vmin),auto] items-center justify-center">
         <ArrowButton
