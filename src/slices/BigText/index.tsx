@@ -21,7 +21,7 @@ const BigText = ({ slice }: BigTextProps): JSX.Element => {
         color: brandConfig.colors.white,
       }}
     >
-      <h2 className="mx-auto grid min-h-screen max-w-6xl place-content-center gap-6 px-4 py-16 text-center text-6xl font-black uppercase leading-[0.88] md:text-8xl lg:text-9xl">
+      <h2 className="mx-auto grid min-h-screen max-w-6xl place-content-center gap-6 px-4 py-16 text-center text-7xl font-black uppercase leading-[0.88] md:text-9xl lg:text-[10rem]">
         <span>Golden</span>
         <span>Eagle</span>
         <span>Flavours</span>
