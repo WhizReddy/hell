@@ -32,7 +32,7 @@ const AlternatingText = ({ slice }: AlternatingTextProps): JSX.Element => {
 
           <div className="alternating-section grid h-screen place-items-center">
             <div
-              className="max-w-3xl p-5 text-center md:col-start-1 md:text-left"
+              className="mt-auto mb-8 max-w-3xl rounded-2xl bg-black/20 p-6 text-center backdrop-blur-lg md:my-auto md:col-start-1 md:bg-transparent md:backdrop-blur-none md:text-left"
             >
               <h2
                 className="text-balance text-5xl font-bold md:text-7xl"
@@ -54,7 +54,7 @@ const AlternatingText = ({ slice }: AlternatingTextProps): JSX.Element => {
               <div
                 className={clsx(
                   index % 2 === 0 ? "md:col-start-2" : "md:col-start-1",
-                  "p-5",
+                  "mt-auto mb-8 w-full max-w-lg rounded-2xl bg-black/20 p-6 backdrop-blur-lg md:my-auto md:p-8",
                 )}
               >
                 <h2

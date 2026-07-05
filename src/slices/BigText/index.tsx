@@ -1,7 +1,6 @@
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
 import { brandConfig } from "@/config/brandConfig";
-import Footer from "@/components/Footer";
 import CircleText from "@/components/CircleText";
 
 /**
@@ -31,7 +30,6 @@ const BigText = ({ slice }: BigTextProps): JSX.Element => {
         <span>Eagle</span>
         <span>Flavours</span>
       </h2>
-      <Footer />
     </section>
   );
 };
