@@ -34,8 +34,8 @@ export default async function Index() {
         slices={[]}
         context={undefined}
       />
-      <AlternatingText
-        slice={{ ...baseSlice, slice_type: "alternating_text" } as never}
+      <SkyDive
+        slice={{ ...baseSlice, slice_type: "sky_dive" } as never}
         index={1}
         slices={[]}
         context={undefined}
@@ -46,8 +46,8 @@ export default async function Index() {
         slices={[]}
         context={undefined}
       />
-      <SkyDive
-        slice={{ ...baseSlice, slice_type: "sky_dive" } as never}
+      <AlternatingText
+        slice={{ ...baseSlice, slice_type: "alternating_text" } as never}
         index={3}
         slices={[]}
         context={undefined}

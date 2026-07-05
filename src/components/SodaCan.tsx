@@ -61,6 +61,8 @@ export function SodaCan({
   Object.values(labels).forEach((texture) => {
     texture.flipY = false;
     texture.colorSpace = THREE.SRGBColorSpace;
+    texture.wrapS = THREE.RepeatWrapping;
+    texture.offset.x = 0.25;
   });
 
   const label = labels[selectedKey];

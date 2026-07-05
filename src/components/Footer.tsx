@@ -11,25 +11,25 @@ export default function Footer({}: Props) {
     >
       <div className="mx-auto flex w-full max-w-2xl flex-col items-center justify-center gap-4 px-6 py-10 text-center">
         <p
-          className="text-sm font-bold uppercase tracking-[0.35em]"
+          className="text-xl font-bold uppercase tracking-[0.35em]"
           style={{ color: brandConfig.colors.yellow }}
         >
           {brandConfig.companyName}
         </p>
         <p
-          className="max-w-full text-balance text-3xl font-black uppercase tracking-wide"
+          className="max-w-full text-balance text-6xl font-black uppercase tracking-wide"
           style={{ color: brandConfig.colors.white }}
         >
           {brandConfig.productName}
         </p>
         <a
           href={contactHref}
-          className="text-base font-semibold"
+          className="text-xl font-semibold"
           style={{ color: brandConfig.colors.yellow }}
         >
           {brandConfig.contactLabel}
         </a>
-        <p className="max-w-xl text-sm text-white/60">
+        <p className="max-w-xl text-lg text-white/60">
           {brandConfig.footerDisclaimer}
         </p>
       </div>
