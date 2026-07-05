@@ -140,14 +140,10 @@ const Carousel = ({ slice }: CarouselProps): JSX.Element => {
       </div>
 
       <div
-        className="text-area relative mx-auto mb-2 max-w-2xl rounded-lg border p-4 text-center backdrop-blur-md"
-        style={{
-          borderColor: currentProduct.accentColor,
-          boxShadow: `0 0 32px ${currentProduct.accentColor}33`,
-        }}
+        className="text-area relative mx-auto mb-2 max-w-2xl text-center"
       >
         <div className="text-wrapper">
-          <p className="text-[clamp(1.5rem,3vw,3rem)] font-bold leading-[1.1]">
+          <p className="text-[clamp(2rem,4vw,4rem)] font-black leading-[1.1]">
             {currentProduct.name}
           </p>
           <p className="mt-2 text-[clamp(0.95rem,1.1vw,1.15rem)] leading-[1.5] opacity-90">
