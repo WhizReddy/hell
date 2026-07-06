@@ -30,9 +30,9 @@ const AlternatingText = ({ slice }: AlternatingTextProps): JSX.Element => {
             <Scene />
           </View>
 
-          <div className="alternating-section grid h-screen place-items-center">
+          <div className="alternating-section grid h-[70vh] place-items-center md:h-screen">
             <div
-              className="my-auto max-w-3xl rounded-2xl bg-black/20 p-6 text-center backdrop-blur-lg md:bg-transparent md:backdrop-blur-none md:text-left"
+              className="my-auto max-w-3xl p-6 text-center max-md:rounded-2xl max-md:bg-black/20 max-md:backdrop-blur-lg md:bg-transparent md:backdrop-blur-none md:text-left"
             >
               <h2
                 className="text-balance text-5xl font-bold md:text-7xl"
@@ -49,7 +49,7 @@ const AlternatingText = ({ slice }: AlternatingTextProps): JSX.Element => {
           {brandConfig.productFeatures.map((feature, index) => (
             <div
               key={feature.title}
-              className="alternating-section grid h-screen place-items-center gap-x-12 md:grid-cols-2"
+              className="alternating-section grid h-[70vh] place-items-center gap-x-12 md:h-screen md:grid-cols-2"
             >
               <div
                 className={clsx(
