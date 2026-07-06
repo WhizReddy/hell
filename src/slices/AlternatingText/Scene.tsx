@@ -72,7 +72,7 @@ export default function Scene({}: Props) {
       ref={canRef}
       position-x={isDesktop ? 1 : 0}
       rotation-y={isDesktop ? -0.3 : 0}
-      scale={isDesktop ? 0.85 : 1}
+      scale={isDesktop ? 1.3 : 1}
     >
       <FloatingCan flavor="original" />
       <Environment files={"/hdr/lobby.hdr"} environmentIntensity={1.5} />
