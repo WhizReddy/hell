@@ -94,7 +94,7 @@ const Carousel = ({ slice }: CarouselProps): JSX.Element => {
           label="Previous flavour"
         />
         <View className="aspect-square h-[75vmin] min-h-[18rem] max-h-[620px]">
-          <Center position={[isDesktop ? 0.2 : 0, 0, 1.5]}>
+          <Center position={[isDesktop ? 0.1 : 0, 0, 1.5]}>
             <FloatingCan
               ref={sodaCanRef}
               floatIntensity={0.28}
