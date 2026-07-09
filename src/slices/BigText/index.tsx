@@ -18,17 +18,22 @@ const BigText = ({ slice }: BigTextProps): JSX.Element => {
       data-slice-variation={slice.variation}
       className="relative min-h-screen w-screen overflow-hidden"
       style={{
-        backgroundColor: brandConfig.colors.blue,
+        background:
+          "radial-gradient(circle at 78% 20%, rgba(255, 43, 0, 0.26), transparent 28rem), linear-gradient(135deg, #050505 0%, #160204 55%, #050505 100%)",
         color: brandConfig.colors.white,
       }}
     >
       <div className="absolute top-1/4 right-8 z-50 w-32 h-32 md:right-16 md:w-48 md:h-48">
-        <CircleText backgroundColor={brandConfig.colors.yellow} textColor={brandConfig.colors.blue} />
+        <CircleText
+          backgroundColor={brandConfig.colors.secondary}
+          textColor={brandConfig.colors.primary}
+        />
       </div>
-      <h2 className="grid w-full min-h-screen place-content-center gap-[1vw] py-16 text-center font-black uppercase leading-[0.8]">
-        <div className="text-[25vw]">Golden</div>
-        <div className="text-[29vw]">Eagle</div>
-        <div className="text-[17vw]">Flavours</div>
+      <h2 className="grid min-h-screen w-full place-content-center gap-2 px-4 py-16 text-center font-black uppercase leading-[0.82] md:gap-3">
+        <div className="text-7xl md:text-9xl lg:text-[12rem]">Big</div>
+        <div className="text-7xl md:text-9xl lg:text-[12rem]">Shock</div>
+        <div className="text-6xl md:text-8xl lg:text-[10rem]">Energy</div>
+        <div className="text-6xl md:text-8xl lg:text-[10rem]">Impact</div>
       </h2>
     </section>
   );

@@ -2,6 +2,7 @@
 
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
+import Image from "next/image";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -76,10 +77,10 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
         .fromTo(
           "body",
           {
-            backgroundColor: brandConfig.colors.darkBlue,
+            backgroundColor: brandConfig.colors.primary,
           },
           {
-            backgroundColor: brandConfig.colors.blue,
+            backgroundColor: brandConfig.colors.primary,
             overwrite: "auto",
           },
           1,
@@ -116,10 +117,16 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
 
       <div className="grid">
         <div className="grid h-screen place-items-center">
-          <div className="grid auto-rows-min place-items-center text-center">
+          <div className="grid auto-rows-min place-items-center px-4 text-center">
+            <p
+              className="mb-4 text-xs font-black uppercase tracking-[0.35em] md:text-sm"
+              style={{ color: brandConfig.colors.secondary }}
+            >
+              {brandConfig.heroEyebrow}
+            </p>
             <h1
               aria-label={brandConfig.heroTitle}
-              className="hero-header max-w-5xl px-4 text-4xl font-black uppercase leading-[0.95] sm:text-5xl md:text-7xl lg:text-8xl"
+              className="hero-header max-w-5xl text-5xl font-black uppercase leading-[1.02] md:text-7xl lg:text-8xl"
               style={{ color: brandConfig.colors.white }}
             >
               <TextSplitter
@@ -128,31 +135,53 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
               />
             </h1>
             <div
-              className="hero-subheading mt-6 text-3xl font-semibold lg:text-4xl"
-              style={{ color: brandConfig.colors.yellow }}
+              className="hero-subheading mt-5 text-2xl font-black uppercase md:text-3xl"
+              style={{ color: brandConfig.colors.secondary }}
             >
               <p>{brandConfig.productName}</p>
             </div>
             <div
-              className="hero-body max-w-2xl text-balance text-xl font-normal md:text-2xl"
+              className="hero-body mt-3 max-w-2xl text-balance text-base font-normal leading-[1.5] md:text-xl"
               style={{ color: brandConfig.colors.white }}
             >
               <p>{brandConfig.heroSubtitle}</p>
             </div>
-
+            <div className="hero-button mt-8 flex flex-wrap justify-center gap-3">
+              <a
+                href="#product-concept"
+                className="rounded-full px-6 py-3 text-sm font-black uppercase tracking-wide text-black transition hover:scale-105 md:px-8 md:text-base"
+                style={{ backgroundColor: brandConfig.colors.secondary }}
+              >
+                {brandConfig.ctaPrimary}
+              </a>
+              <a
+                href={contactHref}
+                className="rounded-full border px-6 py-3 text-sm font-black uppercase tracking-wide transition hover:scale-105 md:px-8 md:text-base"
+                style={{
+                  borderColor: brandConfig.colors.accent,
+                  color: brandConfig.colors.white,
+                }}
+              >
+                {brandConfig.ctaSecondary}
+              </a>
+            </div>
           </div>
         </div>
 
         <div className="text-side relative z-[80] grid h-screen items-center gap-4 md:grid-cols-2">
-          <img
-            src="/all-cans-bunched.png"
-            alt="All Golden Eagle Flavours"
-            className="w-full md:hidden"
-          />
+          <div className="mx-auto grid aspect-[4/3] w-full max-w-sm place-items-center overflow-hidden rounded-3xl border border-white/15 bg-white/10 shadow-2xl shadow-black/30 backdrop-blur md:hidden">
+            <Image
+              src="/images/bigshock-mobile-cans.png"
+              alt="Big Shock can range concept"
+              width={1400}
+              height={900}
+              className="h-full w-full object-cover"
+            />
+          </div>
           <div>
             <h2
               aria-label={brandConfig.brandSection.title}
-              className="text-side-heading text-balance text-6xl font-black uppercase lg:text-8xl"
+              className="text-side-heading text-balance text-4xl font-black uppercase leading-[1.08] md:text-6xl lg:text-7xl"
               style={{ color: brandConfig.colors.white }}
             >
               <TextSplitter text={brandConfig.brandSection.title} />

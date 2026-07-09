@@ -25,13 +25,14 @@ export default function RootLayout({
     <html lang="en" className={alpino.variable}>
       <body
         className="overflow-x-hidden"
-        style={{ backgroundColor: brandConfig.colors.darkBlue }}
+        style={{ backgroundColor: brandConfig.colors.primary }}
       >
         <Header />
         <main>
           {children}
           <ViewCanvas />
         </main>
+        <Footer />
       </body>
       <PrismicPreview repositoryName={repositoryName} />
     </html>

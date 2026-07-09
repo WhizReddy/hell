@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { Environment, OrbitControls } from "@react-three/drei";
+import { Environment } from "@react-three/drei";
 import { Group } from "three";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -123,28 +123,19 @@ export default function Scene({}: Props) {
         />
       </group>
       <group ref={can2GroupRef}>
-        <FloatingCan
-          ref={can2Ref}
-          flavor="zeroCaffeine"
-          floatSpeed={FLOAT_SPEED}
-        />
+        <FloatingCan ref={can2Ref} flavor="zeroSugar" floatSpeed={FLOAT_SPEED} />
       </group>
 
-      <FloatingCan ref={can3Ref} flavor="coffeeEdition" floatSpeed={FLOAT_SPEED} />
+      <FloatingCan ref={can3Ref} flavor="original" floatSpeed={FLOAT_SPEED} />
 
       <FloatingCan
         ref={can4Ref}
-        flavor="redEdition"
+        flavor="zeroSugar"
         floatSpeed={FLOAT_SPEED}
       />
 
-      <FloatingCan
-        ref={can5Ref}
-        flavor="tropicalEdition"
-        floatSpeed={FLOAT_SPEED}
-      />
+      <FloatingCan ref={can5Ref} flavor="original" floatSpeed={FLOAT_SPEED} />
 
-      {/* <OrbitControls /> */}
       <Environment files="/hdr/lobby.hdr" environmentIntensity={1.5} />
     </group>
   );

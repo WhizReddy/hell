@@ -7,16 +7,21 @@ type Props = {
 };
 
 export default function CircleText({
-  textColor = "#1A871D",
-  backgroundColor = "#FFFCFA",
+  textColor = "#050505",
+  backgroundColor = "#ffdd00",
   className,
 }: Props) {
   return (
-    <div className={clsx("circle-text animate-spin-slow origin-center rounded-full overflow-hidden", className)}>
+    <div
+      className={clsx(
+        "circle-text animate-spin-slow origin-center overflow-hidden rounded-full",
+        className,
+      )}
+    >
       <svg
         viewBox="0 0 100 100"
         xmlns="http://www.w3.org/2000/svg"
-        className="w-full h-full"
+        className="h-full w-full"
       >
         <circle cx="50" cy="50" r="50" fill={backgroundColor} />
         <path
@@ -31,7 +36,7 @@ export default function CircleText({
             startOffset="0%"
             className="text-[11px] font-black uppercase tracking-widest"
           >
-            Golden Eagle Flavours • Golden Eagle Flavours •
+            Big Shock Energy • Big Shock Energy •
           </textPath>
         </text>
       </svg>

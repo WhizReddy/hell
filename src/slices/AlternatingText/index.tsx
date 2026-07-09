@@ -22,7 +22,7 @@ const AlternatingText = ({ slice }: AlternatingTextProps): JSX.Element => {
     <Bounded
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="alternating-text-container relative bg-[#052762] text-white"
+      className="alternating-text-container relative bg-[#050505] text-white"
     >
       <div>
         <div id="product-concept" className="relative z-[100] grid">
@@ -32,16 +32,20 @@ const AlternatingText = ({ slice }: AlternatingTextProps): JSX.Element => {
 
           <div className="alternating-section grid h-[70vh] place-items-center md:h-screen">
             <div
-              className="my-auto max-w-3xl p-6 text-center max-md:rounded-2xl max-md:bg-black/20 max-md:backdrop-blur-lg md:bg-transparent md:backdrop-blur-none md:text-left"
+              className="my-auto max-w-3xl p-6 text-center max-md:rounded-2xl max-md:bg-black/65 max-md:backdrop-blur-lg md:bg-transparent md:backdrop-blur-none md:text-left"
             >
               <h2
                 className="text-balance text-5xl font-bold md:text-7xl"
                 style={{ color: brandConfig.colors.white }}
               >
-                Flavour Showcase
+                B2B Product Presentation
               </h2>
-              <p className="mx-auto mt-5 max-w-2xl text-balance text-xl text-white/85">
-                Six Golden Eagle variants, one animated product experience.
+              <p
+                className="mx-auto mt-5 max-w-2xl text-balance text-xl"
+                style={{ color: brandConfig.colors.white }}
+              >
+                A bright product page for gastronomy, retail, and digital sales
+                conversations.
               </p>
             </div>
           </div>
@@ -54,16 +58,19 @@ const AlternatingText = ({ slice }: AlternatingTextProps): JSX.Element => {
               <div
                 className={clsx(
                   index % 2 === 0 ? "md:col-start-2" : "md:col-start-1",
-                  "my-auto w-full max-w-lg max-md:rounded-2xl max-md:bg-black/20 p-6 max-md:backdrop-blur-lg md:p-8",
+                  "my-auto w-full max-w-lg max-md:rounded-2xl max-md:bg-black/65 p-6 max-md:backdrop-blur-lg md:p-8",
                 )}
               >
                 <h2
-                  className="text-balance text-5xl font-bold md:text-6xl"
+                  className="text-balance text-4xl font-black uppercase leading-[1.08] md:text-5xl"
                   style={{ color: brandConfig.colors.white }}
                 >
                   {feature.title}
                 </h2>
-                <div className="mt-4 text-xl text-white/85">
+                <div
+                  className="mt-4 text-base leading-[1.5] md:text-xl"
+                  style={{ color: brandConfig.colors.white }}
+                >
                   <p>{feature.description}</p>
                 </div>
               </div>

@@ -6,13 +6,16 @@ type Props = {};
 export default function Footer({}: Props) {
   return (
     <footer
-      className="absolute bottom-0 w-full z-40 overflow-hidden text-white"
-      style={{ backgroundColor: "transparent" }}
+      className="relative z-40 w-full overflow-hidden"
+      style={{
+        backgroundColor: brandConfig.colors.primary,
+        color: brandConfig.colors.white,
+      }}
     >
       <div className="mx-auto flex w-full max-w-2xl flex-col items-center justify-center gap-4 px-6 py-10 text-center">
         <p
-          className="text-sm font-bold uppercase tracking-[0.35em]"
-          style={{ color: brandConfig.colors.yellow }}
+          className="text-sm font-bold uppercase tracking-[0.3em]"
+          style={{ color: brandConfig.colors.secondary }}
         >
           {brandConfig.companyName}
         </p>
@@ -25,11 +28,11 @@ export default function Footer({}: Props) {
         <a
           href={contactHref}
           className="text-base font-semibold"
-          style={{ color: brandConfig.colors.yellow }}
+          style={{ color: brandConfig.colors.secondary }}
         >
           {brandConfig.contactLabel}
         </a>
-        <p className="max-w-xl text-sm text-white/60">
+        <p className="max-w-xl text-sm opacity-60">
           {brandConfig.footerDisclaimer}
         </p>
       </div>

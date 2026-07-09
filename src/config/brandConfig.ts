@@ -1,6 +1,8 @@
 export type BrandConfig = {
   companyName: string;
   productName: string;
+  brandName: string;
+  productType: string;
   tagline: string;
   heroEyebrow: string;
   heroTitle: string;
@@ -11,11 +13,12 @@ export type BrandConfig = {
   contactHref: string;
   modelPath: string;
   colors: {
-    blue: string;
-    yellow: string;
-    red: string;
+    primary: string;
+    secondary: string;
+    accent: string;
+    electricBlue: string;
+    deepRed: string;
     white: string;
-    darkBlue: string;
   };
   productFeatures: {
     title: string;
@@ -33,45 +36,50 @@ export type BrandConfig = {
 };
 
 export const brandConfig = {
-  companyName: "Golden Eagle",
-  productName: "Golden Eagle Flavours",
-  tagline: "Refreshing energy for every season.",
-  heroEyebrow: "Golden Eagle Energy Drink",
-  heroTitle: "Refreshing Energy for Every Season",
+  companyName: "Big Shock",
+  productName: "Big Shock Energy Drink",
+  brandName: "Big Shock!",
+  productType: "Energy Drink",
+  tagline: "Bold canned energy, built for impact.",
+  heroEyebrow: "Big Shock Energy Drink",
+  heroTitle: "Shock the Shelf",
   heroSubtitle:
-    "An unofficial animated product concept inspired by Golden Eagle's flavour range.",
-  ctaPrimary: "Explore Flavours",
-  ctaSecondary: "View Cans",
-  contactLabel: "View Flavours",
-  contactHref: "#flavours",
+    "An unofficial 3D product campaign concept for Big Shock, built to present canned energy drinks with stronger motion, sharper visuals, and a modern digital product experience.",
+  ctaPrimary: "Explore Concept",
+  ctaSecondary: "View Flavours",
+  contactLabel: "Contact the Brand Team",
+  contactHref: "#contact",
   modelPath: "/Soda-can.gltf",
   colors: {
-    blue: "#0b3f91",
-    yellow: "#f4d131",
-    red: "#e31b23",
+    primary: "#050505",
+    secondary: "#ffdd00",
+    accent: "#ff2b00",
+    electricBlue: "#008cff",
+    deepRed: "#c90018",
     white: "#ffffff",
-    darkBlue: "#052762",
   },
   productFeatures: [
     {
-      title: "Flavour-led browsing",
-      description: "Choose by product variant and discover a rich selection of Golden Eagle energy drinks, each carefully crafted to match your distinct taste preferences and provide the perfect energy boost whenever you need it most.",
+      title: "Can-first presentation",
+      description:
+        "A clean product showcase focused on the can, the variant colour, and the campaign mood.",
     },
     {
-      title: "Real label textures",
-      description: "Each can is meticulously rendered in high fidelity using the original Golden Eagle artwork, ensuring that every condensation bead and metallic shine reflects the premium quality of the real product.",
+      title: "Retail-ready motion",
+      description:
+        "Short sections, strong contrast, and smooth 3D movement built for web and mobile viewing.",
     },
   ],
   brandSection: {
-    title: "Built from Kosovo. Made to Fly Further.",
-    copy: "Frutex started in Suhareka in 1994 and introduced Golden Eagle in 2006. This concept presents the flavour range through a modern animated product experience.",
+    title: "A Can-First Digital Campaign",
+    copy: "A focused product landing page can make a canned drink feel stronger online, whether it is used for launch campaigns, distributor presentations, social traffic, or retail support.",
   },
   ctaSection: {
-    title: "Explore the Golden Eagle flavour range.",
-    cta: "View Flavours",
+    title: "Turn the can into the campaign.",
+    cta: "Contact the Brand Team",
   },
   footerDisclaimer:
-    "Unofficial 3D product campaign concept. Not affiliated with Frutex L.L.C. or Golden Eagle Energy Drink.",
+    "Unofficial 3D product campaign concept. Not affiliated with Big Shock or its parent company.",
 } satisfies BrandConfig;
 
 export const contactHref = brandConfig.contactHref;

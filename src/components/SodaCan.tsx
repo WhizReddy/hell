@@ -5,17 +5,17 @@ import { useGLTF, useTexture } from "@react-three/drei";
 import * as THREE from "three";
 
 import {
-  defaultGoldenEagleProductKey,
-  getGoldenEagleProduct,
-  goldenEagleLabelPaths,
-  goldenEagleProducts,
-  type GoldenEagleProductKey,
-} from "@/config/goldenEagleProducts";
+  bigShockLabelPaths,
+  bigShockProducts,
+  defaultBigShockProductKey,
+  getBigShockProduct,
+  type BigShockProductKey,
+} from "@/config/bigShockProducts";
 
 const CAN_MODEL_PATH = "/Soda-can.gltf";
 
 useGLTF.preload(CAN_MODEL_PATH);
-goldenEagleProducts.forEach((product) => useTexture.preload(product.labelPath));
+bigShockProducts.forEach((product) => useTexture.preload(product.labelPath));
 
 const metalMaterial = new THREE.MeshStandardMaterial({
   roughness: 0.3,
@@ -23,29 +23,29 @@ const metalMaterial = new THREE.MeshStandardMaterial({
   color: "#c8c8c8",
 });
 
-const legacyFlavorMap: Record<string, GoldenEagleProductKey> = {
+const legacyFlavorMap: Record<string, BigShockProductKey> = {
   blackCherry: "original",
-  lemonLime: "zeroCaffeine",
-  grape: "coffeeEdition",
-  strawberryLemonade: "redEdition",
-  watermelon: "tropicalEdition",
+  lemonLime: "gold",
+  grape: "blue",
+  strawberryLemonade: "red",
+  watermelon: "blue",
 };
 
-export type SodaCanFlavor = GoldenEagleProductKey;
+export type SodaCanFlavor = BigShockProductKey;
 
 export type SodaCanProps = ComponentPropsWithoutRef<"group"> & {
-  flavor?: GoldenEagleProductKey | string | null;
-  productKey?: GoldenEagleProductKey;
+  flavor?: BigShockProductKey | string | null;
+  productKey?: BigShockProductKey;
   scale?: number;
 };
 
 function normalizeProductKey(
-  flavor?: GoldenEagleProductKey | string | null,
-  productKey?: GoldenEagleProductKey,
+  flavor?: BigShockProductKey | string | null,
+  productKey?: BigShockProductKey,
 ) {
   if (productKey) return productKey;
-  if (!flavor) return defaultGoldenEagleProductKey;
-  return legacyFlavorMap[flavor] ?? getGoldenEagleProduct(flavor).key;
+  if (!flavor) return defaultBigShockProductKey;
+  return legacyFlavorMap[flavor] ?? getBigShockProduct(flavor).key;
 }
 
 export function SodaCan({
@@ -55,17 +55,23 @@ export function SodaCan({
   ...props
 }: SodaCanProps) {
   const { nodes } = useGLTF(CAN_MODEL_PATH);
-  const labels = useTexture(goldenEagleLabelPaths);
+  const labels = useTexture(bigShockLabelPaths);
   const selectedKey = normalizeProductKey(flavor, productKey);
+  const selectedProduct = getBigShockProduct(selectedKey);
 
   Object.values(labels).forEach((texture) => {
     texture.flipY = false;
     texture.colorSpace = THREE.SRGBColorSpace;
     texture.wrapS = THREE.RepeatWrapping;
-    texture.offset.x = -0.25;
   });
 
   const label = labels[selectedKey];
+  const [offsetX, offsetY] = selectedProduct.textureOffset ?? [0, 0];
+  const [repeatX, repeatY] = selectedProduct.textureRepeat ?? [1, 1];
+
+  label.offset.set(offsetX, offsetY);
+  label.repeat.set(repeatX, repeatY);
+  label.rotation = selectedProduct.textureRotation ?? 0;
 
   return (
     <group {...props} dispose={null} scale={scale} rotation={[0, 0, 0]}>

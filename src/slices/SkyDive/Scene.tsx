@@ -102,7 +102,7 @@ export default function Scene({ sentence, flavor }: SkyDiveProps) {
 
     scrollTl
       .to("body", {
-        backgroundColor: "#C0F0F5",
+        backgroundColor: "#eafcff",
         overwrite: "auto",
         duration: 0.1,
       })
@@ -143,7 +143,7 @@ export default function Scene({ sentence, flavor }: SkyDiveProps) {
           floatIntensity={3}
           floatSpeed={3}
         >
-          <pointLight intensity={30} color="#8C0413" decay={0.6} />
+          <pointLight intensity={24} color="#74d5f4" decay={0.6} />
         </FloatingCan>
       </group>
 
@@ -155,11 +155,11 @@ export default function Scene({ sentence, flavor }: SkyDiveProps) {
 
       {/* Text */}
       <group ref={wordsRef}>
-        {sentence && <ThreeText sentence={sentence} color="#F97315" />}
+      {sentence && <ThreeText sentence={sentence} color="#74d5f4" />}
       </group>
 
       {/* Lights */}
-      <ambientLight intensity={2} color="#9DDEFA" />
+      <ambientLight intensity={2} color="#dff8ff" />
       <Environment files="/hdr/field.hdr" environmentIntensity={1.5} />
     </group>
   );

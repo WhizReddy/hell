@@ -11,8 +11,7 @@ import gsap from "gsap";
 import FloatingCan from "@/components/FloatingCan";
 import { ArrowIcon } from "./ArrowIcon";
 import { WavyCircles } from "./WavyCircles";
-import { brandConfig } from "@/config/brandConfig";
-import { goldenEagleProducts } from "@/config/goldenEagleProducts";
+import { bigShockProducts } from "@/config/bigShockProducts";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 
 const SPINS_ON_CHANGE = 6;
@@ -20,25 +19,23 @@ const SPINS_ON_CHANGE = 6;
 export type CarouselProps = SliceComponentProps<Content.CarouselSlice>;
 
 const Carousel = ({ slice }: CarouselProps): JSX.Element => {
-  const [currentFlavorIndex, setCurrentFlavorIndex] = useState(0);
+  const [currentProductIndex, setCurrentProductIndex] = useState(0);
   const sodaCanRef = useRef<Group>(null);
-  const currentProduct = goldenEagleProducts[currentFlavorIndex];
+  const currentProduct = bigShockProducts[currentProductIndex];
   const isDesktop = useMediaQuery("(min-width: 768px)", true);
 
-  function changeFlavor(index: number) {
+  function changeProduct(index: number) {
     if (!sodaCanRef.current) return;
 
-    const nextIndex =
-      (index + goldenEagleProducts.length) % goldenEagleProducts.length;
-    const nextProduct = goldenEagleProducts[nextIndex];
-
+    const nextIndex = (index + bigShockProducts.length) % bigShockProducts.length;
+    const nextProduct = bigShockProducts[nextIndex];
     const tl = gsap.timeline();
 
     tl.to(
       sodaCanRef.current.rotation,
       {
         y:
-          index > currentFlavorIndex
+          index > currentProductIndex
             ? `-=${Math.PI * 2 * SPINS_ON_CHANGE}`
             : `+=${Math.PI * 2 * SPINS_ON_CHANGE}`,
         ease: "power2.inOut",
@@ -57,7 +54,7 @@ const Carousel = ({ slice }: CarouselProps): JSX.Element => {
         0,
       )
       .to(".text-wrapper", { duration: 0.15, y: -8, opacity: 0 }, 0)
-      .to({}, { onStart: () => setCurrentFlavorIndex(nextIndex) }, 0.4)
+      .to({}, { onStart: () => setCurrentProductIndex(nextIndex) }, 0.4)
       .to(".text-wrapper", { duration: 0.2, y: 0, opacity: 1 }, 0.55);
   }
 
@@ -66,32 +63,37 @@ const Carousel = ({ slice }: CarouselProps): JSX.Element => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       id="flavours"
-      className="carousel relative grid min-h-screen grid-rows-[auto,4fr,auto] justify-center overflow-hidden px-4 py-10 text-white"
+      className="carousel relative grid min-h-screen grid-rows-[auto,4fr,auto] justify-center overflow-hidden px-4 py-12 text-white md:px-10 md:py-16"
       style={{
         background: `linear-gradient(135deg, ${currentProduct.primaryColor}, ${currentProduct.secondaryColor})`,
+        color: currentProduct.textColor,
       }}
     >
       <div
-        className="background pointer-events-none absolute inset-0 opacity-60 transition-colors duration-500"
+        className="background pointer-events-none absolute inset-0 opacity-70 transition-colors duration-500"
         style={{ backgroundColor: currentProduct.primaryColor }}
       />
 
       <WavyCircles
-        className="absolute left-1/2 top-1/2 h-[110vmin] -translate-x-1/2 -translate-y-1/2 opacity-40"
+        className="absolute left-1/2 top-1/2 h-[110vmin] -translate-x-1/2 -translate-y-1/2 opacity-30"
         style={{ color: currentProduct.primaryColor }}
       />
 
-      <h2 className="relative mx-auto max-w-4xl text-center text-5xl font-bold leading-[1.08] md:text-6xl lg:text-7xl">
-        Learn More About Our Flavours
-      </h2>
-
-
+      <div className="relative mx-auto max-w-4xl text-center">
+        <h2 className="text-4xl font-black uppercase leading-[1.08] md:text-6xl lg:text-7xl">
+          Choose Your Shock
+        </h2>
+        <p className="mx-auto mt-4 max-w-2xl text-base leading-[1.5] text-white/85 md:text-lg">
+          A focused product experience where each can changes the colour,
+          motion, and campaign mood.
+        </p>
+      </div>
 
       <div className="relative grid grid-cols-[auto,minmax(220px,70vmin),auto] items-center justify-center">
         <ArrowButton
-          onClick={() => changeFlavor(currentFlavorIndex + 1)}
+          onClick={() => changeProduct(currentProductIndex + 1)}
           direction="left"
-          label="Previous flavour"
+          label="Previous product"
         />
         <View className="aspect-square h-[75vmin] min-h-[18rem] max-h-[620px]">
           <Center position={[isDesktop ? 0.1 : 0, 0, 1.5]}>
@@ -111,22 +113,42 @@ const Carousel = ({ slice }: CarouselProps): JSX.Element => {
           <directionalLight intensity={6} position={[0, 1, 1]} />
         </View>
         <ArrowButton
-          onClick={() => changeFlavor(currentFlavorIndex - 1)}
+          onClick={() => changeProduct(currentProductIndex - 1)}
           direction="right"
-          label="Next flavour"
+          label="Next product"
         />
       </div>
 
-      <div
-        className="text-area relative mx-auto mb-2 max-w-2xl text-center"
-      >
+      <div className="text-area relative mx-auto mb-2 max-w-2xl text-center">
         <div className="text-wrapper">
-          <p className="text-[clamp(2rem,4vw,4rem)] font-black leading-[1.1]">
+          <p className="text-2xl font-black uppercase leading-[1.1] md:text-4xl">
             {currentProduct.name}
           </p>
-          <p className="mt-2 text-[clamp(0.95rem,1.1vw,1.15rem)] leading-[1.5] opacity-90">
+          <p className="mt-2 text-base leading-[1.5] opacity-90 md:text-lg">
             {currentProduct.description}
           </p>
+          <div className="mt-5 flex flex-wrap justify-center gap-3">
+            {bigShockProducts.map((product, index) => (
+              <button
+                key={product.key}
+                onClick={() => changeProduct(index)}
+                className={clsx(
+                  "rounded-full border px-4 py-2 text-xs font-black uppercase transition md:text-sm",
+                  index === currentProductIndex
+                    ? "scale-105 bg-white text-black"
+                    : "border-white/40 bg-black/20 text-white/80 hover:border-white",
+                )}
+                style={{
+                  borderColor:
+                    index === currentProductIndex
+                      ? currentProduct.accentColor
+                      : undefined,
+                }}
+              >
+                {product.shortName}
+              </button>
+            ))}
+          </div>
         </div>
       </div>
     </section>
@@ -149,7 +171,7 @@ function ArrowButton({
   return (
     <button
       onClick={onClick}
-      className="size-11 rounded-full border-2 border-white bg-white/10 p-3 opacity-85 ring-white transition focus:outline-none focus-visible:opacity-100 focus-visible:ring-4 md:size-14"
+      className="size-11 rounded-full border-2 border-white bg-black/30 p-3 text-white opacity-85 ring-white transition focus:outline-none focus-visible:opacity-100 focus-visible:ring-4 md:size-14"
     >
       <ArrowIcon className={clsx(direction === "right" && "-scale-x-100")} />
       <span className="sr-only">{label}</span>

@@ -8,8 +8,8 @@ export default function Header({}: Props) {
     <header className="-mb-28 flex justify-center px-4 py-6">
       <div className="z-10 text-center uppercase">
         <p
-          className="text-sm font-bold tracking-[0.35em]"
-          style={{ color: brandConfig.colors.yellow }}
+          className="text-sm font-bold tracking-[0.3em]"
+          style={{ color: brandConfig.colors.secondary }}
         >
           {brandConfig.companyName}
         </p>
