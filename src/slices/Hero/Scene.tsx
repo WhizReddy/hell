@@ -108,7 +108,7 @@ export default function Scene({}: Props) {
       .to(can5Ref.current.rotation, { z: -0.25 }, 0)
       .to(
         groupRef.current.position,
-        { x: 0.6, duration: 3, ease: "sine.inOut" },
+        { x: 1, duration: 3, ease: "sine.inOut" },
         1.3,
       );
   });
