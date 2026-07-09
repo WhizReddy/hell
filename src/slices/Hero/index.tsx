@@ -113,10 +113,12 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
       }}
     >
       {isDesktop && (
-        <View className="hero-scene pointer-events-none absolute inset-0 z-40 hidden h-full w-screen md:block">
-          <Scene />
-          <Bubbles count={300} speed={2} repeat={true} />
-        </View>
+        <div className="pointer-events-none absolute inset-0 z-40 hidden md:block">
+          <View className="hero-scene sticky top-0 h-screen w-screen">
+            <Scene />
+            <Bubbles count={300} speed={2} repeat={true} />
+          </View>
+        </div>
       )}
 
       <div className="grid">
