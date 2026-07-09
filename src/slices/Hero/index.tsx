@@ -113,15 +113,13 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
       }}
     >
       {isDesktop && (
-        <div className="pointer-events-none absolute inset-0 z-40 hidden md:block">
-          <View className="hero-scene sticky top-0 h-screen w-screen">
-            <Scene />
-            <Bubbles count={300} speed={2} repeat={true} />
-          </View>
-        </div>
+        <View className="hero-scene pointer-events-none sticky top-0 z-40 -mb-[100vh] hidden h-screen w-screen md:block">
+          <Scene />
+          <Bubbles count={300} speed={2} repeat={true} />
+        </View>
       )}
 
-      <div className="grid">
+      <div className="relative z-[80] grid">
         <div className="grid h-screen place-items-center">
           <div className="grid auto-rows-min place-items-center px-4 text-center">
             <p
