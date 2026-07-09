@@ -15,7 +15,7 @@ const SkyDive = ({ slice }: SkyDiveProps): JSX.Element => {
     <Bounded
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="skydive h-screen bg-[#050505]"
+      className="skydive h-screen bg-[#06142f]"
     >
       <h2 className="sr-only">Big Shock campaign call to action</h2>
       <View className="h-screen w-screen">
