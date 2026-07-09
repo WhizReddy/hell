@@ -25,15 +25,17 @@ const metalMaterial = new THREE.MeshStandardMaterial({
 
 const legacyFlavorMap: Record<string, HellProductKey> = {
   blackCherry: "classic",
-  lemonLime: "zero",
+  lemonLime: "caffeineFree",
   grape: "redGrape",
   strawberryLemonade: "apple",
-  watermelon: "focus",
+  watermelon: "blackCherry",
   original: "classic",
-  zeroSugar: "zero",
-  gold: "classic",
+  zeroSugar: "caffeineFree",
+  zero: "caffeineFree",
+  gold: "caffeineFree",
   red: "redGrape",
-  blue: "focus",
+  blue: "blackCherry",
+  focus: "blackCherry",
 };
 
 export type SodaCanFlavor = HellProductKey;

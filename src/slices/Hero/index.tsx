@@ -106,7 +106,11 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
     <Bounded
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="hero opacity-0"
+      className="hero overflow-hidden opacity-0"
+      style={{
+        background:
+          "radial-gradient(circle at 18% 22%, rgba(214, 0, 28, 0.58), transparent 24rem), radial-gradient(circle at 84% 64%, rgba(179, 22, 112, 0.48), transparent 28rem), linear-gradient(135deg, #1b0005 0%, #050505 48%, #3a0010 100%)",
+      }}
     >
       {isDesktop && (
         <View className="hero-scene pointer-events-none sticky top-0 z-50 -mt-[100vh] hidden h-screen w-screen md:block">
@@ -120,7 +124,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
           <div className="grid auto-rows-min place-items-center px-4 text-center">
             <p
               className="mb-4 text-xs font-black uppercase tracking-[0.35em] md:text-sm"
-              style={{ color: brandConfig.colors.secondary }}
+              style={{ color: "#ff5665" }}
             >
               {brandConfig.heroEyebrow}
             </p>
@@ -136,7 +140,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
             </h1>
             <div
               className="hero-subheading mt-5 text-2xl font-black uppercase md:text-3xl"
-              style={{ color: brandConfig.colors.secondary }}
+              style={{ color: "#ff5665" }}
             >
               <p>{brandConfig.productName}</p>
             </div>
@@ -150,7 +154,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
               <a
                 href="#product-concept"
                 className="rounded-full px-6 py-3 text-sm font-black uppercase tracking-wide text-black transition hover:scale-105 md:px-8 md:text-base"
-                style={{ backgroundColor: brandConfig.colors.secondary }}
+                style={{ backgroundColor: "#ffffff" }}
               >
                 {brandConfig.ctaPrimary}
               </a>
@@ -160,6 +164,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
                 style={{
                   borderColor: brandConfig.colors.accent,
                   color: brandConfig.colors.white,
+                  backgroundColor: "rgba(5, 5, 5, 0.36)",
                 }}
               >
                 {brandConfig.ctaSecondary}

@@ -102,7 +102,7 @@ export default function Scene({ sentence, flavor }: SkyDiveProps) {
 
     scrollTl
       .to("body", {
-        backgroundColor: "#090909",
+        backgroundColor: "#270008",
         overwrite: "auto",
         duration: 0.1,
       })

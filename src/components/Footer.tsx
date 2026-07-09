@@ -8,7 +8,8 @@ export default function Footer({}: Props) {
     <footer
       className="relative z-40 w-full overflow-hidden"
       style={{
-        backgroundColor: brandConfig.colors.primary,
+        background:
+          "linear-gradient(135deg, #240007 0%, #050505 52%, #3a001f 100%)",
         color: brandConfig.colors.white,
       }}
     >

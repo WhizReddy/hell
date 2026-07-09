@@ -15,7 +15,11 @@ const SkyDive = ({ slice }: SkyDiveProps): JSX.Element => {
     <Bounded
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="skydive h-screen bg-[#090909]"
+      className="skydive h-screen bg-[#270008]"
+      style={{
+        background:
+          "radial-gradient(circle at 28% 24%, rgba(214, 0, 28, 0.5), transparent 24rem), radial-gradient(circle at 72% 68%, rgba(179, 22, 112, 0.38), transparent 26rem), linear-gradient(135deg, #270008, #050505 58%, #370015)",
+      }}
     >
       <h2 className="sr-only">HELL Energy campaign call to action</h2>
       <View className="h-screen w-screen">

@@ -65,12 +65,12 @@ const Carousel = ({ slice }: CarouselProps): JSX.Element => {
       id="flavours"
       className="carousel relative grid min-h-screen grid-rows-[auto,4fr,auto] justify-center overflow-hidden px-4 py-12 text-white md:px-10 md:py-16"
       style={{
-        background: `linear-gradient(135deg, ${currentProduct.primaryColor}, ${currentProduct.secondaryColor})`,
+        background: `radial-gradient(circle at 20% 18%, ${currentProduct.accentColor}66, transparent 22rem), radial-gradient(circle at 78% 70%, ${currentProduct.secondaryColor}88, transparent 28rem), linear-gradient(135deg, ${currentProduct.primaryColor}, ${currentProduct.secondaryColor})`,
         color: currentProduct.textColor,
       }}
     >
       <div
-        className="background pointer-events-none absolute inset-0 opacity-70 transition-colors duration-500"
+        className="background pointer-events-none absolute inset-0 opacity-45 transition-colors duration-500"
         style={{ backgroundColor: currentProduct.primaryColor }}
       />
 
@@ -79,7 +79,7 @@ const Carousel = ({ slice }: CarouselProps): JSX.Element => {
         style={{ color: currentProduct.primaryColor }}
       />
 
-      <div className="relative mx-auto max-w-4xl text-center">
+      <div className="relative mx-auto max-w-4xl rounded-3xl bg-black/25 px-5 py-5 text-center backdrop-blur-sm">
         <h2 className="text-4xl font-black uppercase leading-[1.08] md:text-6xl lg:text-7xl">
           Choose Your Energy
         </h2>
@@ -119,7 +119,7 @@ const Carousel = ({ slice }: CarouselProps): JSX.Element => {
         />
       </div>
 
-      <div className="text-area relative mx-auto mb-2 max-w-2xl text-center">
+      <div className="text-area relative mx-auto mb-2 max-w-2xl rounded-3xl bg-black/30 px-5 py-5 text-center backdrop-blur-sm">
         <div className="text-wrapper">
           <p className="text-2xl font-black uppercase leading-[1.1] md:text-4xl">
             {currentProduct.name}

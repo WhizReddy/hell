@@ -1,8 +1,10 @@
 import clsx from "clsx";
+import type { CSSProperties } from "react";
 
 type BoundedProps = {
   as?: React.ElementType;
   className?: string;
+  style?: CSSProperties;
   children: React.ReactNode;
 };
 

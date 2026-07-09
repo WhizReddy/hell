@@ -1,9 +1,9 @@
 export type HellProductKey =
   | "classic"
-  | "zero"
+  | "blackCherry"
+  | "caffeineFree"
   | "redGrape"
-  | "apple"
-  | "focus";
+  | "apple";
 
 export type HellProduct = {
   key: HellProductKey;
@@ -31,7 +31,7 @@ export const hellProducts = [
     productImagePath: "/products/hell-classic.png",
     labelPath: "/labels/hell-classic.png",
     primaryColor: "#050505",
-    secondaryColor: "#d6001c",
+    secondaryColor: "#e20d1d",
     accentColor: "#ffffff",
     textColor: "#ffffff",
     description:
@@ -43,17 +43,17 @@ export const hellProducts = [
     textureRotation: 0,
   },
   {
-    key: "zero",
-    name: "HELL Zero Sugar",
-    shortName: "Zero Sugar",
-    productImagePath: "/products/hell-zero.png",
-    labelPath: "/labels/hell-zero.png",
-    primaryColor: "#111111",
-    secondaryColor: "#d7d7d7",
-    accentColor: "#ffffff",
+    key: "blackCherry",
+    name: "HELL Black Cherry",
+    shortName: "Black Cherry",
+    productImagePath: "/products/hell-black-cherry.png",
+    labelPath: "/labels/hell-black-cherry.png",
+    primaryColor: "#220018",
+    secondaryColor: "#b31670",
+    accentColor: "#ff4fb4",
     textColor: "#ffffff",
     description:
-      "A cleaner zero-sugar direction with black, white, and silver contrast.",
+      "A purple-black flavour direction with stronger shelf colour and a sharp can-first presentation.",
     textureOffsetX: 0,
     textureOffsetY: 0,
     textureRepeatX: 1,
@@ -61,17 +61,17 @@ export const hellProducts = [
     textureRotation: 0,
   },
   {
-    key: "redGrape",
-    name: "HELL Strong Red Grape",
-    shortName: "Red Grape",
-    productImagePath: "/products/hell-red-grape.png",
-    labelPath: "/labels/hell-red-grape.png",
-    primaryColor: "#3a0010",
-    secondaryColor: "#d6001c",
-    accentColor: "#ff4f7b",
+    key: "caffeineFree",
+    name: "HELL Caffeine Free",
+    shortName: "Caffeine Free",
+    productImagePath: "/products/hell-caffeine-free.png",
+    labelPath: "/labels/hell-caffeine-free.png",
+    primaryColor: "#6f1010",
+    secondaryColor: "#d4a848",
+    accentColor: "#ffe08a",
     textColor: "#ffffff",
     description:
-      "A dark red flavour direction with stronger colour impact and fruit-led campaign energy.",
+      "A red and gold can direction with a warmer premium campaign look.",
     textureOffsetX: 0,
     textureOffsetY: 0,
     textureRepeatX: 1,
@@ -84,12 +84,12 @@ export const hellProducts = [
     shortName: "Apple",
     productImagePath: "/products/hell-apple.png",
     labelPath: "/labels/hell-apple.png",
-    primaryColor: "#071407",
-    secondaryColor: "#25c94a",
-    accentColor: "#b6ff3b",
+    primaryColor: "#101010",
+    secondaryColor: "#e00016",
+    accentColor: "#ff3131",
     textColor: "#ffffff",
     description:
-      "A sharper green flavour direction with a fresh, high-contrast product look.",
+      "A strong apple direction with red impact, black contrast, and a bold product look.",
     textureOffsetX: 0,
     textureOffsetY: 0,
     textureRepeatX: 1,
@@ -97,17 +97,17 @@ export const hellProducts = [
     textureRotation: 0,
   },
   {
-    key: "focus",
-    name: "HELL Focus",
-    shortName: "Focus",
-    productImagePath: "/products/hell-focus.png",
-    labelPath: "/labels/hell-focus.png",
-    primaryColor: "#050505",
-    secondaryColor: "#0066ff",
-    accentColor: "#d6001c",
+    key: "redGrape",
+    name: "HELL Strong Red Grape",
+    shortName: "Red Grape",
+    productImagePath: "/products/hell-red-grape.png",
+    labelPath: "/labels/hell-red-grape.png",
+    primaryColor: "#76000b",
+    secondaryColor: "#f2f2f2",
+    accentColor: "#ff2d2d",
     textColor: "#ffffff",
     description:
-      "A blue-accent direction built for a sharper, more focused product presentation.",
+      "A white and red flavour direction with clean contrast and strong product visibility.",
     textureOffsetX: 0,
     textureOffsetY: 0,
     textureRepeatX: 1,

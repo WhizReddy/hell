@@ -22,7 +22,7 @@ const AlternatingText = ({ slice }: AlternatingTextProps): JSX.Element => {
     <Bounded
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="alternating-text-container relative bg-[#050505] text-white"
+      className="alternating-text-container relative bg-[#220008] text-white"
     >
       <div>
         <div id="product-concept" className="relative z-[100] grid">
