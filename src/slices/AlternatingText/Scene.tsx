@@ -18,7 +18,7 @@ export default function Scene({}: Props) {
   const canRef = useRef<Group>(null);
   const isDesktop = useMediaQuery("(min-width: 768px)", true);
 
-  const sectionBackground = "#06142f";
+  const sectionBackground = "#090909";
   const bgColors = [
     sectionBackground,
     sectionBackground,
@@ -80,7 +80,7 @@ export default function Scene({}: Props) {
       rotation-y={isDesktop ? -0.3 : 0}
       scale={isDesktop ? 1.1 : 1}
     >
-      <FloatingCan flavor="original" />
+      <FloatingCan flavor="classic" />
       <Environment files={"/hdr/lobby.hdr"} environmentIntensity={1.5} />
     </group>
   );

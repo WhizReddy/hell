@@ -13,10 +13,18 @@ export type BrandConfig = {
   contactHref: string;
   modelPath: string;
   colors: {
+    black: string;
+    deepBlack: string;
     primary: string;
     secondary: string;
     accent: string;
-    electricBlue: string;
+    red: string;
+    darkRed: string;
+    silver: string;
+    metallicGray: string;
+    blueAccent: string;
+    greenAccent: string;
+    grapeAccent: string;
     deepRed: string;
     white: string;
   };
@@ -36,50 +44,58 @@ export type BrandConfig = {
 };
 
 export const brandConfig = {
-  companyName: "Big Shock",
-  productName: "Big Shock Energy Drink",
-  brandName: "Big Shock!",
+  companyName: "HELL Energy",
+  productName: "HELL Energy Drink",
+  brandName: "HELL",
   productType: "Energy Drink",
-  tagline: "Bold canned energy, built for impact.",
-  heroEyebrow: "Big Shock Energy Drink",
-  heroTitle: "Shock the Shelf",
+  tagline: "Dark, sharp, can-first energy.",
+  heroEyebrow: "HELL Energy Drink",
+  heroTitle: "Fuel the Edge",
   heroSubtitle:
-    "An unofficial 3D product campaign concept for Big Shock, built to present canned energy drinks with stronger motion, sharper visuals, and a modern digital product experience.",
+    "An unofficial 3D product campaign concept for HELL Energy, built to present canned energy drinks with stronger motion, sharper visuals, and a premium digital product experience.",
   ctaPrimary: "Explore Concept",
-  ctaSecondary: "View Flavours",
+  ctaSecondary: "View Variants",
   contactLabel: "Contact the Brand Team",
   contactHref: "#contact",
   modelPath: "/Soda-can.gltf",
   colors: {
+    black: "#050505",
+    deepBlack: "#090909",
     primary: "#050505",
-    secondary: "#ffdd00",
-    accent: "#ff2b00",
-    electricBlue: "#008cff",
-    deepRed: "#c90018",
+    secondary: "#d6001c",
+    accent: "#d7d7d7",
+    red: "#d6001c",
+    darkRed: "#8f0012",
+    silver: "#d7d7d7",
+    metallicGray: "#3a3a3a",
+    blueAccent: "#0066ff",
+    greenAccent: "#26c94a",
+    grapeAccent: "#b0003a",
+    deepRed: "#8f0012",
     white: "#ffffff",
   },
   productFeatures: [
     {
-      title: "Can-first presentation",
+      title: "Clear Product Focus",
       description:
-        "A clean product showcase focused on the can, the variant colour, and the campaign mood.",
+        "A short product section keeps attention on the can, the variant colour, and the campaign mood.",
     },
     {
-      title: "Retail-ready motion",
+      title: "Retail Launch Ready",
       description:
-        "Short sections, strong contrast, and smooth 3D movement built for web and mobile viewing.",
+        "Sharp contrast, smooth motion, and mobile-ready layouts support launches, retail, and social traffic.",
     },
   ],
   brandSection: {
     title: "A Can-First Digital Campaign",
-    copy: "A focused product landing page can make a canned drink feel stronger online, whether it is used for launch campaigns, distributor presentations, social traffic, or retail support.",
+    copy: "A focused landing page can make a canned drink feel stronger online, whether it is used for launches, flavour campaigns, distributor presentations, or social traffic.",
   },
   ctaSection: {
     title: "Turn the can into the campaign.",
     cta: "Contact the Brand Team",
   },
   footerDisclaimer:
-    "Unofficial 3D product campaign concept. Not affiliated with Big Shock or its parent company.",
+    "Unofficial 3D product campaign concept. Not affiliated with HELL Energy.",
 } satisfies BrandConfig;
 
 export const contactHref = brandConfig.contactHref;

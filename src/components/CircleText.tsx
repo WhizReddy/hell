@@ -36,7 +36,7 @@ export default function CircleText({
             startOffset="0%"
             className="text-[11px] font-black uppercase tracking-widest"
           >
-            Big Shock Energy • Big Shock Energy •
+            HELL Energy • HELL Energy • HELL Energy •
           </textPath>
         </text>
       </svg>

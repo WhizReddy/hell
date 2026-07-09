@@ -11,7 +11,7 @@ import gsap from "gsap";
 import FloatingCan from "@/components/FloatingCan";
 import { ArrowIcon } from "./ArrowIcon";
 import { WavyCircles } from "./WavyCircles";
-import { bigShockProducts } from "@/config/bigShockProducts";
+import { hellProducts } from "@/config/hellProducts";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 
 const SPINS_ON_CHANGE = 6;
@@ -21,14 +21,14 @@ export type CarouselProps = SliceComponentProps<Content.CarouselSlice>;
 const Carousel = ({ slice }: CarouselProps): JSX.Element => {
   const [currentProductIndex, setCurrentProductIndex] = useState(0);
   const sodaCanRef = useRef<Group>(null);
-  const currentProduct = bigShockProducts[currentProductIndex];
+  const currentProduct = hellProducts[currentProductIndex];
   const isDesktop = useMediaQuery("(min-width: 768px)", true);
 
   function changeProduct(index: number) {
     if (!sodaCanRef.current) return;
 
-    const nextIndex = (index + bigShockProducts.length) % bigShockProducts.length;
-    const nextProduct = bigShockProducts[nextIndex];
+    const nextIndex = (index + hellProducts.length) % hellProducts.length;
+    const nextProduct = hellProducts[nextIndex];
     const tl = gsap.timeline();
 
     tl.to(
@@ -81,7 +81,7 @@ const Carousel = ({ slice }: CarouselProps): JSX.Element => {
 
       <div className="relative mx-auto max-w-4xl text-center">
         <h2 className="text-4xl font-black uppercase leading-[1.08] md:text-6xl lg:text-7xl">
-          Choose Your Shock
+          Choose Your Energy
         </h2>
         <p className="mx-auto mt-4 max-w-2xl text-base leading-[1.5] text-white/85 md:text-lg">
           A focused product experience where each can changes the colour,
@@ -128,7 +128,7 @@ const Carousel = ({ slice }: CarouselProps): JSX.Element => {
             {currentProduct.description}
           </p>
           <div className="mt-5 flex flex-wrap justify-center gap-3">
-            {bigShockProducts.map((product, index) => (
+            {hellProducts.map((product, index) => (
               <button
                 key={product.key}
                 onClick={() => changeProduct(index)}

@@ -38,14 +38,14 @@ const AlternatingText = ({ slice }: AlternatingTextProps): JSX.Element => {
                 className="text-balance text-5xl font-bold md:text-7xl"
                 style={{ color: brandConfig.colors.white }}
               >
-                B2B Product Presentation
+                Built for Product Launches
               </h2>
               <p
                 className="mx-auto mt-5 max-w-2xl text-balance text-xl"
                 style={{ color: brandConfig.colors.white }}
               >
-                A bright product page for gastronomy, retail, and digital sales
-                conversations.
+                This concept is designed as a lightweight campaign page, not a
+                full website replacement.
               </p>
             </div>
           </div>

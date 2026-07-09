@@ -5,17 +5,17 @@ import { useGLTF, useTexture } from "@react-three/drei";
 import * as THREE from "three";
 
 import {
-  bigShockLabelPaths,
-  bigShockProducts,
-  defaultBigShockProductKey,
-  getBigShockProduct,
-  type BigShockProductKey,
-} from "@/config/bigShockProducts";
+  defaultHellProductKey,
+  getHellProduct,
+  hellLabelPaths,
+  hellProducts,
+  type HellProductKey,
+} from "@/config/hellProducts";
 
 const CAN_MODEL_PATH = "/Soda-can.gltf";
 
 useGLTF.preload(CAN_MODEL_PATH);
-bigShockProducts.forEach((product) => useTexture.preload(product.labelPath));
+hellProducts.forEach((product) => useTexture.preload(product.labelPath));
 
 const metalMaterial = new THREE.MeshStandardMaterial({
   roughness: 0.3,
@@ -23,29 +23,34 @@ const metalMaterial = new THREE.MeshStandardMaterial({
   color: "#c8c8c8",
 });
 
-const legacyFlavorMap: Record<string, BigShockProductKey> = {
-  blackCherry: "original",
-  lemonLime: "gold",
-  grape: "blue",
-  strawberryLemonade: "red",
-  watermelon: "blue",
+const legacyFlavorMap: Record<string, HellProductKey> = {
+  blackCherry: "classic",
+  lemonLime: "zero",
+  grape: "redGrape",
+  strawberryLemonade: "apple",
+  watermelon: "focus",
+  original: "classic",
+  zeroSugar: "zero",
+  gold: "classic",
+  red: "redGrape",
+  blue: "focus",
 };
 
-export type SodaCanFlavor = BigShockProductKey;
+export type SodaCanFlavor = HellProductKey;
 
 export type SodaCanProps = ComponentPropsWithoutRef<"group"> & {
-  flavor?: BigShockProductKey | string | null;
-  productKey?: BigShockProductKey;
+  flavor?: HellProductKey | string | null;
+  productKey?: HellProductKey;
   scale?: number;
 };
 
 function normalizeProductKey(
-  flavor?: BigShockProductKey | string | null,
-  productKey?: BigShockProductKey,
+  flavor?: HellProductKey | string | null,
+  productKey?: HellProductKey,
 ) {
   if (productKey) return productKey;
-  if (!flavor) return defaultBigShockProductKey;
-  return legacyFlavorMap[flavor] ?? getBigShockProduct(flavor).key;
+  if (!flavor) return defaultHellProductKey;
+  return legacyFlavorMap[flavor] ?? getHellProduct(flavor).key;
 }
 
 export function SodaCan({
@@ -55,9 +60,9 @@ export function SodaCan({
   ...props
 }: SodaCanProps) {
   const { nodes } = useGLTF(CAN_MODEL_PATH);
-  const labels = useTexture(bigShockLabelPaths);
+  const labels = useTexture(hellLabelPaths);
   const selectedKey = normalizeProductKey(flavor, productKey);
-  const selectedProduct = getBigShockProduct(selectedKey);
+  const selectedProduct = getHellProduct(selectedKey);
 
   Object.values(labels).forEach((texture) => {
     texture.flipY = false;
@@ -66,12 +71,16 @@ export function SodaCan({
   });
 
   const label = labels[selectedKey];
-  const [offsetX, offsetY] = selectedProduct.textureOffset ?? [0, 0];
-  const [repeatX, repeatY] = selectedProduct.textureRepeat ?? [1, 1];
 
-  label.offset.set(offsetX, offsetY);
-  label.repeat.set(repeatX, repeatY);
-  label.rotation = selectedProduct.textureRotation ?? 0;
+  label.offset.set(
+    selectedProduct.textureOffsetX,
+    selectedProduct.textureOffsetY,
+  );
+  label.repeat.set(
+    selectedProduct.textureRepeatX,
+    selectedProduct.textureRepeatY,
+  );
+  label.rotation = selectedProduct.textureRotation;
 
   return (
     <group {...props} dispose={null} scale={scale} rotation={[0, 0, 0]}>

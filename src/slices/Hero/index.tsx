@@ -171,8 +171,8 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
         <div className="text-side relative z-[80] grid h-screen items-center gap-4 md:grid-cols-2">
           <div className="mx-auto grid aspect-[4/3] w-full max-w-sm place-items-center overflow-hidden rounded-3xl border border-white/15 bg-white/10 shadow-2xl shadow-black/30 backdrop-blur md:hidden">
             <Image
-              src="/images/bigshock-mobile-cans.png"
-              alt="Big Shock can range concept"
+              src="/images/hell-mobile-cans.png"
+              alt="HELL Energy can range concept"
               width={1400}
               height={900}
               className="h-full w-full object-cover"

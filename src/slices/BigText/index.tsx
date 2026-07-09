@@ -30,10 +30,10 @@ const BigText = ({ slice }: BigTextProps): JSX.Element => {
         />
       </div>
       <h2 className="grid min-h-screen w-full place-content-center gap-2 px-4 py-16 text-center font-black uppercase leading-[0.82] md:gap-3">
-        <div className="text-7xl md:text-9xl lg:text-[12rem]">Big</div>
-        <div className="text-7xl md:text-9xl lg:text-[12rem]">Shock</div>
-        <div className="text-6xl md:text-8xl lg:text-[10rem]">Energy</div>
-        <div className="text-6xl md:text-8xl lg:text-[10rem]">Impact</div>
+        <div className="text-7xl md:text-9xl lg:text-[12rem]">HELL</div>
+        <div className="text-7xl md:text-9xl lg:text-[12rem]">ENERGY</div>
+        <div className="text-6xl md:text-8xl lg:text-[10rem]">STRONG</div>
+        <div className="text-6xl md:text-8xl lg:text-[10rem]">EDGE</div>
       </h2>
     </section>
   );
