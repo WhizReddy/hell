@@ -106,14 +106,14 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
     <Bounded
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="hero overflow-hidden opacity-0"
+      className="hero relative overflow-hidden opacity-0"
       style={{
         background:
           "radial-gradient(circle at 18% 22%, rgba(214, 0, 28, 0.58), transparent 24rem), radial-gradient(circle at 84% 64%, rgba(179, 22, 112, 0.48), transparent 28rem), linear-gradient(135deg, #1b0005 0%, #050505 48%, #3a0010 100%)",
       }}
     >
       {isDesktop && (
-        <View className="hero-scene pointer-events-none sticky top-0 z-50 -mt-[100vh] hidden h-screen w-screen md:block">
+        <View className="hero-scene pointer-events-none absolute inset-0 z-40 hidden h-full w-screen md:block">
           <Scene />
           <Bubbles count={300} speed={2} repeat={true} />
         </View>

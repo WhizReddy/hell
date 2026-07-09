@@ -138,7 +138,7 @@ export default function Scene({}: Props) {
         floatSpeed={FLOAT_SPEED}
       />
 
-      <FloatingCan ref={can5Ref} flavor="redGrape" floatSpeed={FLOAT_SPEED} />
+      <FloatingCan ref={can5Ref} flavor="apple" floatSpeed={FLOAT_SPEED} />
 
       <Environment files="/hdr/lobby.hdr" environmentIntensity={1.5} />
     </group>
