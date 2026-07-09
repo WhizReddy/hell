@@ -108,13 +108,13 @@ export default function Scene({}: Props) {
       .to(can5Ref.current.rotation, { z: -0.25 }, 0)
       .to(
         groupRef.current.position,
-        { x: 1, duration: 3, ease: "sine.inOut" },
+        { x: 0.75, duration: 3, ease: "sine.inOut" },
         1.3,
       );
   });
 
   return (
-    <group ref={groupRef}>
+    <group ref={groupRef} scale={0.72}>
       <group ref={can1GroupRef}>
         <FloatingCan
           ref={can1Ref}
