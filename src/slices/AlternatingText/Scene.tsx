@@ -18,7 +18,7 @@ export default function Scene({}: Props) {
   const canRef = useRef<Group>(null);
   const isDesktop = useMediaQuery("(min-width: 768px)", true);
 
-  const bgColors = ["#eafcff", "#ffffff", "#dff8ff", "#f7fbfd"];
+  const bgColors = ["#050505", "#120203", "#160204", "#050505"];
 
   useGSAP(
     () => {
