@@ -106,21 +106,23 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
     <Bounded
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="hero relative overflow-hidden opacity-0"
+      className="hero relative opacity-0"
       style={{
         background:
           "radial-gradient(circle at 18% 22%, rgba(214, 0, 28, 0.58), transparent 24rem), radial-gradient(circle at 84% 64%, rgba(179, 22, 112, 0.48), transparent 28rem), linear-gradient(135deg, #1b0005 0%, #050505 48%, #3a0010 100%)",
       }}
     >
       {isDesktop && (
-        <View className="hero-scene pointer-events-none sticky top-0 z-50 -mt-[100vh] hidden h-screen w-screen md:block">
-          <Scene />
-          <Bubbles count={300} speed={2} repeat={true} />
-        </View>
+        <div className="pointer-events-none absolute inset-x-0 top-0 z-50 hidden h-[300vh] w-screen md:block">
+          <View className="hero-scene sticky top-0 h-screen w-screen">
+            <Scene />
+            <Bubbles count={300} speed={2} repeat={true} />
+          </View>
+        </div>
       )}
 
       <div className="grid">
-        <div className="grid h-screen place-items-center">
+        <div className="relative z-[80] grid h-screen place-items-center">
           <div className="grid auto-rows-min place-items-center px-4 text-center">
             <p
               className="mb-4 text-xs font-black uppercase tracking-[0.35em] md:text-sm"
