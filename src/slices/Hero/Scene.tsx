@@ -14,6 +14,9 @@ gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 type Props = {};
 
+const HERO_SCALE = 0.72;
+const PRODUCT_CLUSTER_SCALE = 1.1;
+
 export default function Scene({}: Props) {
   const isReady = useStore((state) => state.isReady);
 
@@ -46,15 +49,24 @@ export default function Scene({}: Props) {
     isReady();
 
     // Set can starting location
-    gsap.set(can1Ref.current.position, { x: -1.5 });
+    gsap.set(groupRef.current.scale, {
+      x: HERO_SCALE,
+      y: HERO_SCALE,
+      z: HERO_SCALE,
+    });
+
+    gsap.set(can1Ref.current.position, { x: -2 });
     gsap.set(can1Ref.current.rotation, { z: -0.5 });
 
-    gsap.set(can2Ref.current.position, { x: 1.5 });
+    gsap.set(can2Ref.current.position, { x: 2 });
     gsap.set(can2Ref.current.rotation, { z: 0.5 });
 
-    gsap.set(can3Ref.current.position, { y: 5, z: 2 });
-    gsap.set(can4Ref.current.position, { x: 2, y: 4, z: 2 });
-    gsap.set(can5Ref.current.position, { y: -5 });
+    gsap.set(can3Ref.current.position, { y: 7, z: 2 });
+    gsap.set(can4Ref.current.position, { x: 2.5, y: 7, z: 2 });
+    gsap.set(can5Ref.current.position, { y: -7 });
+    [can3Ref.current, can4Ref.current, can5Ref.current].forEach((can) => {
+      gsap.set(can.scale, { x: 0.01, y: 0.01, z: 0.01 });
+    });
 
     const introTl = gsap.timeline({
       defaults: {
@@ -83,38 +95,79 @@ export default function Scene({}: Props) {
       },
     });
 
+    const heroHold = 0.8;
+    const clusterStart = 1.15;
+
     scrollTl
       // Rotate can group
       .to(groupRef.current.rotation, { y: Math.PI * 2 })
 
       // Can 1
-      .to(can1Ref.current.position, { x: -0.2, y: -0.7, z: -2 }, 0)
-      .to(can1Ref.current.rotation, { z: 0.3 }, 0)
+      .to(can1Ref.current.position, { x: -0.2, y: -0.45, z: -2 }, heroHold)
+      .to(can1Ref.current.rotation, { z: 0.3 }, heroHold)
 
       // Can 2
-      .to(can2Ref.current.position, { x: 1, y: -0.2, z: -1 }, 0)
-      .to(can2Ref.current.rotation, { z: 0 }, 0)
+      .to(can2Ref.current.position, { x: 1, y: -0.05, z: -1 }, heroHold)
+      .to(can2Ref.current.rotation, { z: 0 }, heroHold)
 
       // Can 3
-      .to(can3Ref.current.position, { x: -0.3, y: 0.5, z: -1 }, 0)
-      .to(can3Ref.current.rotation, { z: -0.1 }, 0)
+      .to(
+        can3Ref.current.position,
+        { x: -0.3, y: 0.32, z: -1, duration: 1.15 },
+        clusterStart,
+      )
+      .to(can3Ref.current.rotation, { z: -0.1, duration: 1.15 }, clusterStart)
+      .to(
+        can3Ref.current.scale,
+        { x: 1, y: 1, z: 1, duration: 0.45 },
+        clusterStart,
+      )
 
       // Can 4
-      .to(can4Ref.current.position, { x: 0, y: -0.3, z: 0.5 }, 0)
-      .to(can4Ref.current.rotation, { z: 0.3 }, 0)
+      .to(
+        can4Ref.current.position,
+        { x: 0, y: -0.15, z: 0.5, duration: 1.15 },
+        clusterStart,
+      )
+      .to(can4Ref.current.rotation, { z: 0.3, duration: 1.15 }, clusterStart)
+      .to(
+        can4Ref.current.scale,
+        { x: 1, y: 1, z: 1, duration: 0.45 },
+        clusterStart,
+      )
 
       // Can 5
-      .to(can5Ref.current.position, { x: 0.3, y: 0.5, z: -0.5 }, 0)
-      .to(can5Ref.current.rotation, { z: -0.25 }, 0)
+      .to(
+        can5Ref.current.position,
+        { x: 0.3, y: 0.32, z: -0.5, duration: 1.15 },
+        clusterStart,
+      )
+      .to(can5Ref.current.rotation, { z: -0.25, duration: 1.15 }, clusterStart)
+      .to(
+        can5Ref.current.scale,
+        { x: 1, y: 1, z: 1, duration: 0.45 },
+        clusterStart,
+      )
+      .to(
+        groupRef.current.scale,
+        {
+          x: PRODUCT_CLUSTER_SCALE,
+          y: PRODUCT_CLUSTER_SCALE,
+          z: PRODUCT_CLUSTER_SCALE,
+          duration: 1.2,
+          ease: "sine.inOut",
+        },
+        clusterStart,
+      )
       .to(
         groupRef.current.position,
-        { x: 1, duration: 3, ease: "sine.inOut" },
-        1.3,
+        { x: 0.45, duration: 1.8, ease: "sine.inOut" },
+        clusterStart,
       );
   });
 
   return (
-    <group ref={groupRef} scale={0.58}>
+    <group ref={groupRef} scale={HERO_SCALE}>
       <group ref={can1GroupRef}>
         <FloatingCan
           ref={can1Ref}
