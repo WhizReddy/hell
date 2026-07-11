@@ -14,8 +14,8 @@ gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 type Props = {};
 
-const HERO_SCALE = 0.72;
-const PRODUCT_CLUSTER_SCALE = 1.1;
+const HERO_SCALE = 0.84;
+const PRODUCT_CLUSTER_SCALE = 0.9;
 
 export default function Scene({}: Props) {
   const isReady = useStore((state) => state.isReady);
@@ -55,17 +55,17 @@ export default function Scene({}: Props) {
       z: HERO_SCALE,
     });
 
-    gsap.set(can1Ref.current.position, { x: -2 });
+    gsap.set(can1Ref.current.position, { x: -2.2 });
     gsap.set(can1Ref.current.rotation, { z: -0.5 });
 
-    gsap.set(can2Ref.current.position, { x: 2 });
+    gsap.set(can2Ref.current.position, { x: 2.2 });
     gsap.set(can2Ref.current.rotation, { z: 0.5 });
 
     gsap.set(can3Ref.current.position, { y: 7, z: 2 });
     gsap.set(can4Ref.current.position, { x: 2.5, y: 7, z: 2 });
     gsap.set(can5Ref.current.position, { y: -7 });
     [can3Ref.current, can4Ref.current, can5Ref.current].forEach((can) => {
-      gsap.set(can.scale, { x: 0.01, y: 0.01, z: 0.01 });
+      gsap.set(can.scale, { x: 0.001, y: 0.001, z: 0.001 });
     });
 
     const introTl = gsap.timeline({
@@ -95,8 +95,8 @@ export default function Scene({}: Props) {
       },
     });
 
-    const heroHold = 0.8;
-    const clusterStart = 1.15;
+    const heroHold = 1.05;
+    const clusterStart = 4.8;
 
     scrollTl
       // Rotate can group
@@ -113,39 +113,39 @@ export default function Scene({}: Props) {
       // Can 3
       .to(
         can3Ref.current.position,
-        { x: -0.3, y: 0.32, z: -1, duration: 1.15 },
+        { x: -0.3, y: 0.32, z: -1, duration: 1 },
         clusterStart,
       )
-      .to(can3Ref.current.rotation, { z: -0.1, duration: 1.15 }, clusterStart)
+      .to(can3Ref.current.rotation, { z: -0.1, duration: 1 }, clusterStart)
       .to(
         can3Ref.current.scale,
-        { x: 1, y: 1, z: 1, duration: 0.45 },
+        { x: 1, y: 1, z: 1, duration: 0.35 },
         clusterStart,
       )
 
       // Can 4
       .to(
         can4Ref.current.position,
-        { x: 0, y: -0.15, z: 0.5, duration: 1.15 },
+        { x: 0, y: -0.15, z: 0.5, duration: 1 },
         clusterStart,
       )
-      .to(can4Ref.current.rotation, { z: 0.3, duration: 1.15 }, clusterStart)
+      .to(can4Ref.current.rotation, { z: 0.3, duration: 1 }, clusterStart)
       .to(
         can4Ref.current.scale,
-        { x: 1, y: 1, z: 1, duration: 0.45 },
+        { x: 1, y: 1, z: 1, duration: 0.35 },
         clusterStart,
       )
 
       // Can 5
       .to(
         can5Ref.current.position,
-        { x: 0.3, y: 0.32, z: -0.5, duration: 1.15 },
+        { x: 0.3, y: 0.32, z: -0.5, duration: 1 },
         clusterStart,
       )
-      .to(can5Ref.current.rotation, { z: -0.25, duration: 1.15 }, clusterStart)
+      .to(can5Ref.current.rotation, { z: -0.25, duration: 1 }, clusterStart)
       .to(
         can5Ref.current.scale,
-        { x: 1, y: 1, z: 1, duration: 0.45 },
+        { x: 1, y: 1, z: 1, duration: 0.35 },
         clusterStart,
       )
       .to(
@@ -154,14 +154,14 @@ export default function Scene({}: Props) {
           x: PRODUCT_CLUSTER_SCALE,
           y: PRODUCT_CLUSTER_SCALE,
           z: PRODUCT_CLUSTER_SCALE,
-          duration: 1.2,
+          duration: 1,
           ease: "sine.inOut",
         },
         clusterStart,
       )
       .to(
         groupRef.current.position,
-        { x: 0.45, duration: 1.8, ease: "sine.inOut" },
+        { x: 0.5, duration: 1.2, ease: "sine.inOut" },
         clusterStart,
       );
   });
