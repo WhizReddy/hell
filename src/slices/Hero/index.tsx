@@ -166,19 +166,18 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
                 {brandConfig.ctaSecondary}
               </a>
             </div>
-          </div>
-        </div>
-
-        <div className="text-side relative z-[80] grid min-h-screen items-center gap-5 py-10 md:h-screen md:grid-cols-2 md:py-0">
-          <div className="mx-auto grid h-[46svh] w-full max-w-sm place-items-center md:hidden">
             <Image
               src="/images/hell-mobile-cans.png"
               alt="HELL Energy can range concept"
               width={1000}
               height={1300}
-              className="h-full w-full object-contain"
+              priority
+              className="mt-5 h-[25svh] max-h-[220px] w-auto object-contain md:hidden"
             />
           </div>
+        </div>
+
+        <div className="text-side relative z-[80] grid min-h-[70svh] items-center gap-5 py-10 md:h-screen md:min-h-screen md:grid-cols-2 md:py-0">
           <div>
             <h2
               aria-label={brandConfig.brandSection.title}
