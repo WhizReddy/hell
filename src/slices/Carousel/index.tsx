@@ -79,8 +79,8 @@ const Carousel = ({ slice }: CarouselProps): JSX.Element => {
         style={{ color: currentProduct.primaryColor }}
       />
 
-      <div className="relative mx-auto max-w-4xl rounded-3xl bg-black/25 px-5 py-5 text-center backdrop-blur-sm">
-        <h2 className="text-4xl font-black uppercase leading-[1.08] md:text-6xl lg:text-7xl">
+      <div className="relative mx-auto max-w-4xl rounded-lg border border-white/10 bg-black/30 px-5 py-5 text-center backdrop-blur-sm">
+        <h2 className="text-4xl font-black uppercase leading-[1.08] md:text-5xl lg:text-6xl">
           Choose Your Energy
         </h2>
         <p className="mx-auto mt-4 max-w-2xl text-base leading-[1.5] text-white/85 md:text-lg">
@@ -95,7 +95,7 @@ const Carousel = ({ slice }: CarouselProps): JSX.Element => {
           direction="left"
           label="Previous product"
         />
-        <View className="aspect-square h-[75vmin] min-h-[18rem] max-h-[620px]">
+        <View className="aspect-square h-[68vmin] max-h-[560px] min-h-[18rem]">
           <Center position={[isDesktop ? 0.1 : 0, 0, 1.5]}>
             <FloatingCan
               ref={sodaCanRef}
@@ -119,7 +119,7 @@ const Carousel = ({ slice }: CarouselProps): JSX.Element => {
         />
       </div>
 
-      <div className="text-area relative mx-auto mb-2 max-w-2xl rounded-3xl bg-black/30 px-5 py-5 text-center backdrop-blur-sm">
+      <div className="text-area relative mx-auto mb-2 max-w-2xl rounded-lg border border-white/10 bg-black/35 px-5 py-5 text-center backdrop-blur-sm">
         <div className="text-wrapper">
           <p className="text-2xl font-black uppercase leading-[1.1] md:text-4xl">
             {currentProduct.name}

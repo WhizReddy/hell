@@ -28,6 +28,8 @@ export default function Footer({}: Props) {
         </p>
         <a
           href={contactHref}
+          target="_blank"
+          rel="noreferrer"
           className="text-base font-semibold"
           style={{ color: brandConfig.colors.secondary }}
         >

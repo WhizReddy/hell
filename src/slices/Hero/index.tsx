@@ -37,32 +37,30 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
       const introTl = gsap.timeline();
 
       introTl
-        .set(".hero", { opacity: 1 })
         .from(".hero-header-word", {
-          scale: 1.25,
-          opacity: 0,
+          scale: 1.08,
+          y: 16,
           ease: "power3.out",
-          delay: 0.2,
-          duration: 0.45,
-          stagger: 0.08,
+          delay: 0.1,
+          duration: 0.4,
+          stagger: 0.04,
         })
         .from(
-          ".hero-subheading",
+          ".hero-body",
           {
-            opacity: 0,
-            y: 30,
+            y: 14,
+            duration: 0.35,
           },
-          "+=.8",
+          "-=.15",
         )
-        .from(".hero-body", {
-          opacity: 0,
-          y: 10,
-        })
-        .from(".hero-button", {
-          opacity: 0,
-          y: 10,
-          duration: 0.6,
-        });
+        .from(
+          ".hero-button",
+          {
+            y: 12,
+            duration: 0.35,
+          },
+          "-=.15",
+        );
 
       const scrollTl = gsap.timeline({
         scrollTrigger: {
@@ -106,14 +104,14 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
     <Bounded
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="hero relative opacity-0"
+      className="hero relative"
       style={{
         background:
           "radial-gradient(circle at 18% 22%, rgba(214, 0, 28, 0.58), transparent 24rem), radial-gradient(circle at 84% 64%, rgba(179, 22, 112, 0.48), transparent 28rem), linear-gradient(135deg, #1b0005 0%, #050505 48%, #3a0010 100%)",
       }}
     >
       {isDesktop && (
-        <div className="pointer-events-none absolute inset-x-0 top-0 z-50 hidden h-[260vh] w-screen md:block">
+        <div className="pointer-events-none absolute inset-0 z-50 hidden w-screen md:block">
           <View className="hero-scene sticky top-0 h-screen w-screen">
             <Scene />
             <Bubbles count={300} speed={2} repeat={true} />
@@ -141,13 +139,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
               />
             </h1>
             <div
-              className="hero-subheading mt-5 text-2xl font-black uppercase md:text-3xl"
-              style={{ color: "#ff5665" }}
-            >
-              <p>{brandConfig.productName}</p>
-            </div>
-            <div
-              className="hero-body mt-3 max-w-2xl text-balance text-base font-normal leading-[1.5] md:text-xl"
+              className="hero-body mt-5 max-w-xl text-balance text-base font-normal leading-[1.5] md:text-lg"
               style={{ color: brandConfig.colors.white }}
             >
               <p>{brandConfig.heroSubtitle}</p>
@@ -162,6 +154,8 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
               </a>
               <a
                 href={contactHref}
+                target="_blank"
+                rel="noreferrer"
                 className="rounded-full border px-6 py-3 text-sm font-black uppercase tracking-wide transition hover:scale-105 md:px-8 md:text-base"
                 style={{
                   borderColor: brandConfig.colors.accent,
@@ -175,26 +169,26 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
           </div>
         </div>
 
-        <div className="text-side relative z-[80] grid h-screen items-center gap-4 md:grid-cols-2">
-          <div className="mx-auto grid aspect-[10/13] w-full max-w-sm place-items-center overflow-hidden rounded-3xl border border-white/15 bg-black/20 shadow-2xl shadow-black/30 backdrop-blur md:hidden">
+        <div className="text-side relative z-[80] grid min-h-screen items-center gap-5 py-10 md:h-screen md:grid-cols-2 md:py-0">
+          <div className="mx-auto grid h-[46svh] w-full max-w-sm place-items-center md:hidden">
             <Image
               src="/images/hell-mobile-cans.png"
               alt="HELL Energy can range concept"
               width={1000}
               height={1300}
-              className="h-full w-full object-contain p-2"
+              className="h-full w-full object-contain"
             />
           </div>
           <div>
             <h2
               aria-label={brandConfig.brandSection.title}
-              className="text-side-heading text-balance text-4xl font-black uppercase leading-[1.08] md:text-6xl lg:text-7xl"
+              className="text-side-heading text-balance text-4xl font-black uppercase leading-[1.08] md:text-5xl lg:text-6xl"
               style={{ color: brandConfig.colors.white }}
             >
               <TextSplitter text={brandConfig.brandSection.title} />
             </h2>
             <div
-              className="text-side-body mt-4 max-w-xl text-balance text-xl font-normal"
+              className="text-side-body mt-4 max-w-xl text-balance text-base font-normal leading-[1.55] md:text-lg"
               style={{ color: brandConfig.colors.white }}
             >
               <p>{brandConfig.brandSection.copy}</p>

@@ -135,7 +135,7 @@ export default function Scene({ sentence, flavor }: SkyDiveProps) {
   return (
     <group ref={groupRef}>
       {/* Can */}
-      <group rotation={[0, 0, 0.5]}>
+      <group rotation={[0, 0, 0.5]} scale={0.78}>
         <FloatingCan
           ref={canRef}
           flavor={flavor}

@@ -14,8 +14,8 @@ gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 type Props = {};
 
-const HERO_SCALE = 0.84;
-const PRODUCT_CLUSTER_SCALE = 0.9;
+const HERO_SCALE = 0.72;
+const PRODUCT_CLUSTER_SCALE = 0.66;
 
 export default function Scene({}: Props) {
   const isReady = useStore((state) => state.isReady);
@@ -55,10 +55,10 @@ export default function Scene({}: Props) {
       z: HERO_SCALE,
     });
 
-    gsap.set(can1Ref.current.position, { x: -2.2 });
+    gsap.set(can1Ref.current.position, { x: -2 });
     gsap.set(can1Ref.current.rotation, { z: -0.5 });
 
-    gsap.set(can2Ref.current.position, { x: 2.2 });
+    gsap.set(can2Ref.current.position, { x: 2 });
     gsap.set(can2Ref.current.rotation, { z: 0.5 });
 
     gsap.set(can3Ref.current.position, { y: 7, z: 2 });
@@ -70,7 +70,7 @@ export default function Scene({}: Props) {
 
     const introTl = gsap.timeline({
       defaults: {
-        duration: 3,
+        duration: 1.6,
         ease: "back.out(1.4)",
       },
     });
@@ -95,28 +95,36 @@ export default function Scene({}: Props) {
       },
     });
 
-    const heroHold = 1.05;
-    const clusterStart = 4.8;
+    const heroTransition = 0.75;
+    const clusterStart = 1.65;
 
     scrollTl
       // Rotate can group
-      .to(groupRef.current.rotation, { y: Math.PI * 2 })
+      .to(groupRef.current.rotation, { y: Math.PI * 2, duration: 2.4 }, 0)
 
       // Can 1
-      .to(can1Ref.current.position, { x: -0.2, y: -0.45, z: -2 }, heroHold)
-      .to(can1Ref.current.rotation, { z: 0.3 }, heroHold)
+      .to(
+        can1Ref.current.position,
+        { x: -0.2, y: -0.45, z: -2, duration: 0.9 },
+        heroTransition,
+      )
+      .to(can1Ref.current.rotation, { z: 0.3, duration: 0.9 }, heroTransition)
 
       // Can 2
-      .to(can2Ref.current.position, { x: 1, y: -0.05, z: -1 }, heroHold)
-      .to(can2Ref.current.rotation, { z: 0 }, heroHold)
+      .to(
+        can2Ref.current.position,
+        { x: 1, y: -0.05, z: -1, duration: 0.9 },
+        heroTransition,
+      )
+      .to(can2Ref.current.rotation, { z: 0, duration: 0.9 }, heroTransition)
 
       // Can 3
       .to(
         can3Ref.current.position,
-        { x: -0.3, y: 0.32, z: -1, duration: 1 },
+        { x: -0.3, y: 0.32, z: -1, duration: 0.75 },
         clusterStart,
       )
-      .to(can3Ref.current.rotation, { z: -0.1, duration: 1 }, clusterStart)
+      .to(can3Ref.current.rotation, { z: -0.1, duration: 0.75 }, clusterStart)
       .to(
         can3Ref.current.scale,
         { x: 1, y: 1, z: 1, duration: 0.35 },
@@ -126,10 +134,10 @@ export default function Scene({}: Props) {
       // Can 4
       .to(
         can4Ref.current.position,
-        { x: 0, y: -0.15, z: 0.5, duration: 1 },
+        { x: 0, y: -0.15, z: 0.5, duration: 0.75 },
         clusterStart,
       )
-      .to(can4Ref.current.rotation, { z: 0.3, duration: 1 }, clusterStart)
+      .to(can4Ref.current.rotation, { z: 0.3, duration: 0.75 }, clusterStart)
       .to(
         can4Ref.current.scale,
         { x: 1, y: 1, z: 1, duration: 0.35 },
@@ -139,10 +147,10 @@ export default function Scene({}: Props) {
       // Can 5
       .to(
         can5Ref.current.position,
-        { x: 0.3, y: 0.32, z: -0.5, duration: 1 },
+        { x: 0.3, y: 0.32, z: -0.5, duration: 0.75 },
         clusterStart,
       )
-      .to(can5Ref.current.rotation, { z: -0.25, duration: 1 }, clusterStart)
+      .to(can5Ref.current.rotation, { z: -0.25, duration: 0.75 }, clusterStart)
       .to(
         can5Ref.current.scale,
         { x: 1, y: 1, z: 1, duration: 0.35 },
@@ -154,16 +162,17 @@ export default function Scene({}: Props) {
           x: PRODUCT_CLUSTER_SCALE,
           y: PRODUCT_CLUSTER_SCALE,
           z: PRODUCT_CLUSTER_SCALE,
-          duration: 1,
+          duration: 0.75,
           ease: "sine.inOut",
         },
         clusterStart,
       )
       .to(
         groupRef.current.position,
-        { x: 0.5, duration: 1.2, ease: "sine.inOut" },
+        { x: 0.75, duration: 0.75, ease: "sine.inOut" },
         clusterStart,
-      );
+      )
+      .to({}, { duration: 1.1 });
   });
 
   return (
@@ -173,6 +182,7 @@ export default function Scene({}: Props) {
           ref={can1Ref}
           flavor="classic"
           floatSpeed={FLOAT_SPEED}
+          rotationIntensity={0.08}
         />
       </group>
       <group ref={can2GroupRef}>
@@ -180,18 +190,30 @@ export default function Scene({}: Props) {
           ref={can2Ref}
           flavor="blackCherry"
           floatSpeed={FLOAT_SPEED}
+          rotationIntensity={0.08}
         />
       </group>
 
-      <FloatingCan ref={can3Ref} flavor="redGrape" floatSpeed={FLOAT_SPEED} />
+      <FloatingCan
+        ref={can3Ref}
+        flavor="redGrape"
+        floatSpeed={FLOAT_SPEED}
+        rotationIntensity={0.08}
+      />
 
       <FloatingCan
         ref={can4Ref}
         flavor="caffeineFree"
         floatSpeed={FLOAT_SPEED}
+        rotationIntensity={0.08}
       />
 
-      <FloatingCan ref={can5Ref} flavor="apple" floatSpeed={FLOAT_SPEED} />
+      <FloatingCan
+        ref={can5Ref}
+        flavor="apple"
+        floatSpeed={FLOAT_SPEED}
+        rotationIntensity={0.08}
+      />
 
       <Environment files="/hdr/lobby.hdr" environmentIntensity={1.5} />
     </group>

@@ -52,11 +52,11 @@ export const brandConfig = {
   heroEyebrow: "HELL Energy Drink",
   heroTitle: "Fuel the Edge",
   heroSubtitle:
-    "An unofficial 3D product campaign concept for HELL Energy, built to present canned energy drinks with stronger motion, sharper visuals, and a premium digital product experience.",
+    "An unofficial 3D campaign concept built around the HELL can range.",
   ctaPrimary: "Explore Concept",
   ctaSecondary: "View Variants",
   contactLabel: "Contact the Brand Team",
-  contactHref: "#contact",
+  contactHref: "https://www.hellenergy.com/gb/en-contact/contact/",
   modelPath: "/Soda-can.gltf",
   colors: {
     black: "#050505",

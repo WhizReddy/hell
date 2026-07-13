@@ -103,7 +103,7 @@ export const hellProducts = [
     productImagePath: "/products/hell-red-grape.png",
     labelPath: "/labels/hell-red-grape.png",
     primaryColor: "#76000b",
-    secondaryColor: "#f2f2f2",
+    secondaryColor: "#35060a",
     accentColor: "#ff2d2d",
     textColor: "#ffffff",
     description:
