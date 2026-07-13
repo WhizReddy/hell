@@ -14,8 +14,8 @@ gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 type Props = {};
 
-const HERO_SCALE = 0.82;
-const PRODUCT_CLUSTER_SCALE = 0.76;
+const HERO_SCALE = 1;
+const PRODUCT_CLUSTER_SCALE = 0.94;
 
 export default function Scene({}: Props) {
   const isReady = useStore((state) => state.isReady);
